@@ -12,6 +12,5 @@ namespace NutritionLibrary.Models
         public string Name { get; set; }
         public string Notes { get; set; }
 
-        public List<IngredientModel> Ingredients = new List<IngredientModel>();
     }
 }

@@ -10,6 +10,7 @@ namespace NutritionLibrary.Models
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public decimal Value { get; set; }
+        public decimal DataValue { get; set; }
+        public int UnitId { get; set; }
     }
 }

@@ -16,6 +16,10 @@ namespace NutritionUI
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+
+            // setup global db connection
+            NutritionLibrary.GlobalConfig.InitializeConnection();
+
             Application.Run(new FoodEntryForm());
         }
     }

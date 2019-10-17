@@ -79,5 +79,11 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\NutritionLibrary\NutritionLibrary.csproj">
+      <Project>{bd34392a-6eea-4a61-9865-707d79daa314}</Project>
+      <Name>NutritionLibrary</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
