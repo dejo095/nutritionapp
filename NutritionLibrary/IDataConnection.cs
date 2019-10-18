@@ -24,5 +24,7 @@ namespace NutritionLibrary
         FoodModel InsertFood(FoodModel food);
 
         bool InsertIngredientsForFood(List<IngredientModel> ingredients);
+
+        int Foods_GetSum();
     }
 }

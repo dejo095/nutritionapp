@@ -13,7 +13,7 @@ namespace NutritionLibrary.DataAccess
     {
         private const string dbName = "nutritionapp";
 
-        // TODO: Here goes methods that will execute stored procedures
+        // Here goes methods that will execute stored procedures
         // Methods used here are the ones from IDataConnection interface, so first declare them there
 
         public List<StyleModel> Styles_GetAll()
@@ -121,6 +121,25 @@ namespace NutritionLibrary.DataAccess
                                
                 return true;
             }
+        }
+
+        public int Foods_GetSum()
+        {
+            int output;
+
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(GlobalConfig.CnnString(dbName)))
+            {
+                var p = new DynamicParameters();
+
+                p.Add("@Sum", 0, dbType: DbType.Int32, direction: ParameterDirection.Output);
+
+                connection.Execute("dbo.spFoods_GetSum", p, commandType: CommandType.StoredProcedure);
+
+                output = p.Get<int>("@Sum");
+
+                return output;
+            }
+
         }
     }
 }

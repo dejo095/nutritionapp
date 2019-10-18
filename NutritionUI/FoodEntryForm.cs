@@ -66,6 +66,10 @@ namespace NutritionUI
             InitializeComponent();
             populateComboboxes();
 
+            IDataConnection db = GlobalConfig.Connection;
+            numberOfFoodLabel.Text = "No of foods in db: " + db.Foods_GetSum().ToString();
+            
+
             this.foodNameTextbox.Enter += new System.EventHandler(this.foodNameTextbox_Enter);
             this.foodNameTextbox.Leave += new System.EventHandler(this.foodNameTextbox_Leave);
 
@@ -231,7 +235,7 @@ namespace NutritionUI
         private void GITextbox_Leave(object sender, EventArgs e)
         {
             bool res = decimal.TryParse(GITextbox.Text, out GI);
-            if (!res) GITextbox.Text = "";
+            if (!res) GITextbox.Text = StringValues.GI;
         }
 
         private void completnessScoreTextbox_Enter(object sender, EventArgs e)
@@ -241,7 +245,7 @@ namespace NutritionUI
         private void completnessScoreTextbox_Leave(object sender, EventArgs e)
         {
             bool res = decimal.TryParse(completnessScoreTextbox.Text, out completnessScore);
-            if (!res) completnessScoreTextbox.Text = "";
+            if (!res) completnessScoreTextbox.Text = StringValues.completnessScore;
         }
 
         private void aminoAcidScoreTextbox_Enter(object sender, EventArgs e)
@@ -251,7 +255,7 @@ namespace NutritionUI
         private void aminoAcidScoreTextbox_Leave(object sender, EventArgs e)
         {
             bool res = decimal.TryParse(aminoAcidScoreTextbox.Text, out aminoAcidScore);
-            if (!res) aminoAcidScoreTextbox.Text = "";
+            if (!res) aminoAcidScoreTextbox.Text = StringValues.aminoAcidScore;
         }
 
         private void caloriesTextbox_Enter(object sender, EventArgs e)
@@ -261,7 +265,7 @@ namespace NutritionUI
         private void caloriesTextbox_Leave(object sender, EventArgs e)
         {
             bool res = decimal.TryParse(caloriesTextbox.Text, out calories);
-            if (!res) caloriesTextbox.Text = "";
+            if (!res) caloriesTextbox.Text = StringValues.calories;
         }
 
         private void proteinsTextbox_Enter(object sender, EventArgs e)
@@ -271,7 +275,7 @@ namespace NutritionUI
         private void proteinsTextbox_Leave(object sender, EventArgs e)
         {
             bool res = decimal.TryParse(proteinsTextbox.Text, out proteins);
-            if (!res) proteinsTextbox.Text = "";
+            if (!res) proteinsTextbox.Text = StringValues.proteins;
         }
 
         private void carbsTextbox_Enter(object sender, EventArgs e)
@@ -281,7 +285,7 @@ namespace NutritionUI
         private void carbsTextbox_Leave(object sender, EventArgs e)
         {
             bool res = decimal.TryParse(carbsTextbox.Text, out carbs);
-            if (!res) carbsTextbox.Text = "";
+            if (!res) carbsTextbox.Text = StringValues.carbs;
         }
 
         private void sugarsTextbox_Enter(object sender, EventArgs e)
@@ -291,7 +295,7 @@ namespace NutritionUI
         private void sugarsTextbox_Leave(object sender, EventArgs e)
         {
             bool res = decimal.TryParse(sugarsTextbox.Text, out sugars);
-            if (!res) sugarsTextbox.Text = "";
+            if (!res) sugarsTextbox.Text = StringValues.sugars;
         }
 
         private void starchTextbox_Enter(object sender, EventArgs e)
@@ -301,7 +305,7 @@ namespace NutritionUI
         private void starchTextbox_Leave(object sender, EventArgs e)
         {
             bool res = decimal.TryParse(starchTextbox.Text, out starch);
-            if (!res) starchTextbox.Text = "";
+            if (!res) starchTextbox.Text = StringValues.starch;
         }
 
         private void cholesterolTextbox_Enter(object sender, EventArgs e)
@@ -311,7 +315,7 @@ namespace NutritionUI
         private void cholesterolTextbox_Leave(object sender, EventArgs e)
         {
             bool res = decimal.TryParse(cholesterolTextbox.Text, out cholesterol);
-            if (!res) cholesterolTextbox.Text = "";
+            if (!res) cholesterolTextbox.Text = StringValues.cholesterol;
         }
 
         private void fiberTextbox_Enter(object sender, EventArgs e)
@@ -321,7 +325,7 @@ namespace NutritionUI
         private void fiberTextbox_Leave(object sender, EventArgs e)
         {
             bool res = decimal.TryParse(fiberTextbox.Text, out fiber);
-            if (!res) fiberTextbox.Text = "";
+            if (!res) fiberTextbox.Text = StringValues.fibers;
         }
 
         private void dietaryFiberTextbox_Enter(object sender, EventArgs e)
@@ -331,7 +335,7 @@ namespace NutritionUI
         private void dietaryFiberTextbox_Leave(object sender, EventArgs e)
         {
             bool res = decimal.TryParse(dietaryFiberTextbox.Text, out dietaryFiber);
-            if (!res) dietaryFiberTextbox.Text = "";
+            if (!res) dietaryFiberTextbox.Text = StringValues.dietaryFibers;
         }
 
         private void totalFatTextbox_Enter(object sender, EventArgs e)
@@ -341,7 +345,7 @@ namespace NutritionUI
         private void totalFatTextbox_Leave(object sender, EventArgs e)
         {
             bool res = decimal.TryParse(totalFatTextbox.Text, out totalFat);
-            if (!res) totalFatTextbox.Text = "";
+            if (!res) totalFatTextbox.Text = StringValues.totalFat;
         }
 
         private void saturatedFatTextbox_Enter(object sender, EventArgs e)
@@ -351,7 +355,7 @@ namespace NutritionUI
         private void saturatedFatTextbox_Leave(object sender, EventArgs e)
         {
             bool res = decimal.TryParse(saturatedFatTextbox.Text, out saturatedFat);
-            if (!res) saturatedFatTextbox.Text = "";
+            if (!res) saturatedFatTextbox.Text = StringValues.saturatedFat;
         }
 
         private void monoUnsaturatedFatTextbox_Enter(object sender, EventArgs e)
@@ -361,7 +365,7 @@ namespace NutritionUI
         private void monoUnsaturatedFatTextbox_Leave(object sender, EventArgs e)
         {
             bool res = decimal.TryParse(monoUnsaturatedFatTextbox.Text, out monoUnsaturatedFat);
-            if (!res) monoUnsaturatedFatTextbox.Text = "";
+            if (!res) monoUnsaturatedFatTextbox.Text = StringValues.monoUnsaturatedFat;
         }
 
         private void polyUnsaturatedFatTextbox_Enter(object sender, EventArgs e)
@@ -371,7 +375,7 @@ namespace NutritionUI
         private void polyUnsaturatedFatTextbox_Leave(object sender, EventArgs e)
         {
             bool res = decimal.TryParse(polyUnsaturatedFatTextbox.Text, out polyUnsaturatedFat);
-            if (!res) polyUnsaturatedFatTextbox.Text = "";
+            if (!res) polyUnsaturatedFatTextbox.Text = StringValues.polyUnsaturatedFat;
         }
 
         private void transFatTextbox_Enter(object sender, EventArgs e)
@@ -381,7 +385,7 @@ namespace NutritionUI
         private void transFatTextbox_Leave(object sender, EventArgs e)
         {
             bool res = decimal.TryParse(transFatTextbox.Text, out transFat);
-            if (!res) transFatTextbox.Text = "";
+            if (!res) transFatTextbox.Text = StringValues.transFat;
         }
 
         private void omega3FatTextbox_Enter(object sender, EventArgs e)
@@ -391,7 +395,7 @@ namespace NutritionUI
         private void omega3FatTextbox_Leave(object sender, EventArgs e)
         {
             bool res = decimal.TryParse(omega3FatTextbox.Text, out omega3Fat);
-            if (!res) omega3FatTextbox.Text = "";
+            if (!res) omega3FatTextbox.Text = StringValues.omega3Fat;
         }
 
         private void omega6FatTextbox_Enter(object sender, EventArgs e)
@@ -401,7 +405,7 @@ namespace NutritionUI
         private void omega6FatTextbox_Leave(object sender, EventArgs e)
         {
             bool res = decimal.TryParse(omega6FatTextbox.Text, out omega6Fat);
-            if (!res) omega6FatTextbox.Text = "";
+            if (!res) omega6FatTextbox.Text = StringValues.omega6Fat;
         }
 
         private void vitATextbox_Enter(object sender, EventArgs e)
@@ -411,7 +415,7 @@ namespace NutritionUI
         private void vitATextbox_Leave(object sender, EventArgs e)
         {
             bool res = decimal.TryParse(vitATextbox.Text, out vitA);
-            if (!res) vitATextbox.Text = "";
+            if (!res) vitATextbox.Text = StringValues.vitA;
         }
 
         private void vitB6Textbox_Enter(object sender, EventArgs e)
@@ -421,7 +425,7 @@ namespace NutritionUI
         private void vitB6Textbox_Leave(object sender, EventArgs e)
         {
             bool res = decimal.TryParse(vitB6Textbox.Text, out vitB6);
-            if (!res) vitB6Textbox.Text = "";
+            if (!res) vitB6Textbox.Text = StringValues.vitB6;
         }
 
         private void vitB12Textbox_Enter(object sender, EventArgs e)
@@ -431,7 +435,7 @@ namespace NutritionUI
         private void vitB12Textbox_Leave(object sender, EventArgs e)
         {
             bool res = decimal.TryParse(vitB12Textbox.Text, out vitB12);
-            if (!res) vitB12Textbox.Text = "";
+            if (!res) vitB12Textbox.Text = StringValues.vitB12;
         }
 
         private void vitCTextbox_Enter(object sender, EventArgs e)
@@ -441,7 +445,7 @@ namespace NutritionUI
         private void vitCTextbox_Leave(object sender, EventArgs e)
         {
             bool res = decimal.TryParse(vitCTextbox.Text, out vitC);
-            if (!res) vitCTextbox.Text = "";
+            if (!res) vitCTextbox.Text = StringValues.vitC;
         }
 
         private void vitDTextbox_Enter(object sender, EventArgs e)
@@ -451,7 +455,7 @@ namespace NutritionUI
         private void vitDTextbox_Leave(object sender, EventArgs e)
         {
             bool res = decimal.TryParse(vitDTextbox.Text, out vitD);
-            if (!res) vitDTextbox.Text = "";
+            if (!res) vitDTextbox.Text = StringValues.vitD;
         }
 
         private void vitETextbox_Enter(object sender, EventArgs e)
@@ -461,7 +465,7 @@ namespace NutritionUI
         private void vitETextbox_Leave(object sender, EventArgs e)
         {
             bool res = decimal.TryParse(vitETextbox.Text, out vitE);
-            if (!res) vitETextbox.Text = "";
+            if (!res) vitETextbox.Text = StringValues.vitE;
         }
 
         private void vitKTextbox_Enter(object sender, EventArgs e)
@@ -471,7 +475,7 @@ namespace NutritionUI
         private void vitKTextbox_Leave(object sender, EventArgs e)
         {
             bool res = decimal.TryParse(vitKTextbox.Text, out vitK);
-            if (!res) vitKTextbox.Text = "";
+            if (!res) vitKTextbox.Text = StringValues.vitK;
         }
 
         private void thiaminTextbox_Enter(object sender, EventArgs e)
@@ -481,7 +485,7 @@ namespace NutritionUI
         private void thiaminTextbox_Leave(object sender, EventArgs e)
         {
             bool res = decimal.TryParse(thiaminTextbox.Text, out thiamin);
-            if (!res) thiaminTextbox.Text = "";
+            if (!res) thiaminTextbox.Text = StringValues.thiamin;
         }
 
         private void riboflavinTextbox_Enter(object sender, EventArgs e)
@@ -491,7 +495,7 @@ namespace NutritionUI
         private void riboflavinTextbox_Leave(object sender, EventArgs e)
         {
             bool res = decimal.TryParse(riboflavinTextbox.Text, out riboflavin);
-            if (!res) riboflavinTextbox.Text = "";
+            if (!res) riboflavinTextbox.Text = StringValues.riboflavin;
         }
         
         private void niacinTextbox_Enter(object sender, EventArgs e)
@@ -501,7 +505,7 @@ namespace NutritionUI
         private void niacinTextbox_Leave(object sender, EventArgs e)
         {
             bool res = decimal.TryParse(niacinTextbox.Text, out niacin);
-            if (!res) niacinTextbox.Text = "";
+            if (!res) niacinTextbox.Text = StringValues.niacin;
         }
 
         private void folateTextbox_Enter(object sender, EventArgs e)
@@ -511,7 +515,7 @@ namespace NutritionUI
         private void folateTextbox_Leave(object sender, EventArgs e)
         {
             bool res = decimal.TryParse(folateTextbox.Text, out folate);
-            if (!res) folateTextbox.Text = "";
+            if (!res) folateTextbox.Text = StringValues.folate;
         }
 
         private void panthothenicAcidTextbox_Enter(object sender, EventArgs e)
@@ -521,7 +525,7 @@ namespace NutritionUI
         private void panthothenicAcidTextbox_Leave(object sender, EventArgs e)
         {
             bool res = decimal.TryParse(panthothenicAcidTextbox.Text, out panthothenicAcid);
-            if (!res) panthothenicAcidTextbox.Text = "";
+            if (!res) panthothenicAcidTextbox.Text = StringValues.panthothenicAcid;
         }
 
         private void calciumTextbox_Enter(object sender, EventArgs e)
@@ -531,7 +535,7 @@ namespace NutritionUI
         private void calciumTextbox_Leave(object sender, EventArgs e)
         {
             bool res = decimal.TryParse(calciumTextbox.Text, out calcium);
-            if (!res) calciumTextbox.Text = "";
+            if (!res) calciumTextbox.Text = StringValues.calcium;
         }
 
         private void ironTextbox_Enter(object sender, EventArgs e)
@@ -541,7 +545,7 @@ namespace NutritionUI
         private void ironTextbox_Leave(object sender, EventArgs e)
         {
             bool res = decimal.TryParse(ironTextbox.Text, out iron);
-            if (!res) ironTextbox.Text = "";
+            if (!res) ironTextbox.Text = StringValues.iron;
         }
 
         private void magnesiumTextbox_Enter(object sender, EventArgs e)
@@ -551,7 +555,7 @@ namespace NutritionUI
         private void magnesiumTextbox_Leave(object sender, EventArgs e)
         {
             bool res = decimal.TryParse(magnesiumTextbox.Text, out magnesium);
-            if (!res) magnesiumTextbox.Text = "";
+            if (!res) magnesiumTextbox.Text = StringValues.magnesium;
         }
 
         private void phosphorusTextbox_Enter(object sender, EventArgs e)
@@ -561,7 +565,7 @@ namespace NutritionUI
         private void phosphorusTextbox_Leave(object sender, EventArgs e)
         {
             bool res = decimal.TryParse(phosphorusTextbox.Text, out phosphorus);
-            if (!res) phosphorusTextbox.Text = "";
+            if (!res) phosphorusTextbox.Text = StringValues.phosphorus;
         }
 
         private void potassiumTextbox_Enter(object sender, EventArgs e)
@@ -571,7 +575,7 @@ namespace NutritionUI
         private void potassiumTextbox_Leave(object sender, EventArgs e)
         {
             bool res = decimal.TryParse(potassiumTextbox.Text, out potassium);
-            if (!res) potassiumTextbox.Text = "";
+            if (!res) potassiumTextbox.Text = StringValues.potassium;
         }
 
         private void sodiumTextbox_Enter(object sender, EventArgs e)
@@ -581,7 +585,7 @@ namespace NutritionUI
         private void sodiumTextbox_Leave(object sender, EventArgs e)
         {
             bool res = decimal.TryParse(sodiumTextbox.Text, out sodium);
-            if (!res) sodiumTextbox.Text = "";
+            if (!res) sodiumTextbox.Text = StringValues.sodium;
         }
 
         private void zincTextbox_Enter(object sender, EventArgs e)
@@ -591,7 +595,7 @@ namespace NutritionUI
         private void zincTextbox_Leave(object sender, EventArgs e)
         {
             bool res = decimal.TryParse(zincTextbox.Text, out zinc);
-            if (!res) zincTextbox.Text = "";
+            if (!res) zincTextbox.Text = StringValues.zinc;
         }
 
         private void copperTextbox_Enter(object sender, EventArgs e)
@@ -601,7 +605,7 @@ namespace NutritionUI
         private void copperTextbox_Leave(object sender, EventArgs e)
         {
             bool res = decimal.TryParse(copperTextbox.Text, out copper);
-            if (!res) copperTextbox.Text = "";
+            if (!res) copperTextbox.Text = StringValues.copper;
         }
 
         private void manganeseTextbox_Enter(object sender, EventArgs e)
@@ -611,7 +615,7 @@ namespace NutritionUI
         private void manganeseTextbox_Leave(object sender, EventArgs e)
         {
             bool res = decimal.TryParse(manganeseTextbox.Text, out manganese);
-            if (!res) manganeseTextbox.Text = "";
+            if (!res) manganeseTextbox.Text = StringValues.manganese;
         }
 
         private void seleniumTextbox_Enter(object sender, EventArgs e)
@@ -621,7 +625,7 @@ namespace NutritionUI
         private void seleniumTextbox_Leave(object sender, EventArgs e)
         {
             bool res = decimal.TryParse(seleniumTextbox.Text, out selenium);
-            if (!res) seleniumTextbox.Text = "";
+            if (!res) seleniumTextbox.Text = StringValues.selenium;
         }
 
         private void foodNotesTextbox_Enter(object sender, EventArgs e)
@@ -630,7 +634,8 @@ namespace NutritionUI
         }
         private void foodNotesTextbox_Leave(object sender, EventArgs e)
         {
-            if (foodNotesTextbox.Text.Length != 0) foodNotes = foodNotesTextbox.Text;
+            if (foodNotesTextbox.Text.Length != 0 && foodNotesTextbox.Text != StringValues.foodNotes) foodNotes = foodNotesTextbox.Text;
+            else foodNotesTextbox.Text = StringValues.foodNotes;
         }
 
 
@@ -651,9 +656,8 @@ namespace NutritionUI
 
             // Need to create food first to be able to get back the ID first
             FoodModel food = new FoodModel();
-            food.Name = foodNameTextbox.Text;
-            // TODO: do notes here, check if not empty
-            //food.Notes = foodNotesTextbox.Text;
+            food.Name = foodNameTextbox.Text.Length != 0 ? foodNameTextbox.Text : null;
+            food.Notes = foodNotesTextbox.Text.Length != 0 ? foodNotesTextbox.Text : null;
 
             try
             {
@@ -664,209 +668,213 @@ namespace NutritionUI
                     // Then lets create ingredients
                     if (GI != 0)
                     {
-                        chosenType = db.Types_GetByName("Glycemic Index");
+                        chosenType = db.Types_GetByName(StringValues.GI);
                         Ingredients.Add(addIngredient(food.Id, chosenStyle.Id, chosenServingSize.Id, chosenType[0].Id, GI, no_unit[0].Id, null));
                     }
                     if (completnessScore != 0)
                     {
-                        chosenType = db.Types_GetByName("Completness Score");
+                        chosenType = db.Types_GetByName(StringValues.completnessScore);
                         Ingredients.Add(addIngredient(food.Id, chosenStyle.Id, chosenServingSize.Id, chosenType[0].Id, completnessScore, no_unit[0].Id, null));
                     }
                     if (aminoAcidScore != 0)
                     {
-                        chosenType = db.Types_GetByName("Amino Acid Score");
+                        chosenType = db.Types_GetByName(StringValues.aminoAcidScore);
                         Ingredients.Add(addIngredient(food.Id, chosenStyle.Id, chosenServingSize.Id, chosenType[0].Id, aminoAcidScore, no_unit[0].Id, null));
                     }
                     if (calories != 0)
                     {
-                        chosenType = db.Types_GetByName("Calories");
+                        chosenType = db.Types_GetByName(StringValues.calories);
                         Ingredients.Add(addIngredient(food.Id, chosenStyle.Id, chosenServingSize.Id, chosenType[0].Id, calories, no_unit[0].Id, null));
                     }
                     if (proteins != 0)
                     {
-                        chosenType = db.Types_GetByName("Proteins");
+                        chosenType = db.Types_GetByName(StringValues.proteins);
                         Ingredients.Add(addIngredient(food.Id, chosenStyle.Id, chosenServingSize.Id, chosenType[0].Id, proteins, unit_Gram[0].Id, null));
                     }
                     if (carbs != 0)
                     {
-                        chosenType = db.Types_GetByName("Carbs");
+                        chosenType = db.Types_GetByName(StringValues.carbs);
                         Ingredients.Add(addIngredient(food.Id, chosenStyle.Id, chosenServingSize.Id, chosenType[0].Id, carbs, unit_Gram[0].Id, null));
                     }
                     if (sugars != 0)
                     {
-                        chosenType = db.Types_GetByName("Sugars");
+                        chosenType = db.Types_GetByName(StringValues.sugars);
                         Ingredients.Add(addIngredient(food.Id, chosenStyle.Id, chosenServingSize.Id, chosenType[0].Id, sugars, unit_Gram[0].Id, null));
                     }
                     if (starch != 0)
                     {
-                        chosenType = db.Types_GetByName("Starch");
+                        chosenType = db.Types_GetByName(StringValues.starch);
                         Ingredients.Add(addIngredient(food.Id, chosenStyle.Id, chosenServingSize.Id, chosenType[0].Id, starch, unit_Gram[0].Id, null));
                     }
                     if (cholesterol != 0)
                     {
-                        chosenType = db.Types_GetByName("Cholesterol");
+                        chosenType = db.Types_GetByName(StringValues.cholesterol);
                         Ingredients.Add(addIngredient(food.Id, chosenStyle.Id, chosenServingSize.Id, chosenType[0].Id, cholesterol, unit_Miligram[0].Id, null));
                     }
                     if (fiber != 0)
                     {
-                        chosenType = db.Types_GetByName("Fibers");
+                        chosenType = db.Types_GetByName(StringValues.fibers);
                         Ingredients.Add(addIngredient(food.Id, chosenStyle.Id, chosenServingSize.Id, chosenType[0].Id, fiber, unit_Gram[0].Id, null));
                     }
                     if (dietaryFiber != 0)
                     {
-                        chosenType = db.Types_GetByName("Cholesterol");
+                        chosenType = db.Types_GetByName(StringValues.dietaryFibers);
                         Ingredients.Add(addIngredient(food.Id, chosenStyle.Id, chosenServingSize.Id, chosenType[0].Id, dietaryFiber, unit_Gram[0].Id, null));
                     }
                     if (totalFat != 0)
                     {
-                        chosenType = db.Types_GetByName("Total Fat");
+                        chosenType = db.Types_GetByName(StringValues.totalFat);
                         Ingredients.Add(addIngredient(food.Id, chosenStyle.Id, chosenServingSize.Id, chosenType[0].Id, totalFat, unit_Gram[0].Id, null));
                     }
                     if (saturatedFat != 0)
                     {
-                        chosenType = db.Types_GetByName("Saturated");
+                        chosenType = db.Types_GetByName(StringValues.saturatedFat);
                         Ingredients.Add(addIngredient(food.Id, chosenStyle.Id, chosenServingSize.Id, chosenType[0].Id, saturatedFat, unit_Gram[0].Id, null));
                     }
                     if (monoUnsaturatedFat != 0)
                     {
-                        chosenType = db.Types_GetByName("Mono Unsaturated");
+                        chosenType = db.Types_GetByName(StringValues.monoUnsaturatedFat);
                         Ingredients.Add(addIngredient(food.Id, chosenStyle.Id, chosenServingSize.Id, chosenType[0].Id, monoUnsaturatedFat, unit_Gram[0].Id, null));
                     }
                     if (polyUnsaturatedFat != 0)
                     {
-                        chosenType = db.Types_GetByName("Poly Unsaturated");
+                        chosenType = db.Types_GetByName(StringValues.polyUnsaturatedFat);
                         Ingredients.Add(addIngredient(food.Id, chosenStyle.Id, chosenServingSize.Id, chosenType[0].Id, polyUnsaturatedFat, unit_Gram[0].Id, null));
                     }
                     if (transFat != 0)
                     {
-                        chosenType = db.Types_GetByName("Trans");
+                        chosenType = db.Types_GetByName(StringValues.transFat);
                         Ingredients.Add(addIngredient(food.Id, chosenStyle.Id, chosenServingSize.Id, chosenType[0].Id, transFat, unit_Gram[0].Id, null));
                     }
                     if (omega3Fat != 0)
                     {
-                        chosenType = db.Types_GetByName("Omega 3");
+                        chosenType = db.Types_GetByName(StringValues.omega3Fat);
                         Ingredients.Add(addIngredient(food.Id, chosenStyle.Id, chosenServingSize.Id, chosenType[0].Id, omega3Fat, unit_Miligram[0].Id, null));
                     }
                     if (omega6Fat != 0)
                     {
-                        chosenType = db.Types_GetByName("Omega 6");
+                        chosenType = db.Types_GetByName(StringValues.omega6Fat);
                         Ingredients.Add(addIngredient(food.Id, chosenStyle.Id, chosenServingSize.Id, chosenType[0].Id, omega6Fat, unit_Gram[0].Id, null));
                     }
                     if (vitA != 0)
                     {
-                        chosenType = db.Types_GetByName("Vitamin A");
+                        chosenType = db.Types_GetByName(StringValues.vitA);
                         Ingredients.Add(addIngredient(food.Id, chosenStyle.Id, chosenServingSize.Id, chosenType[0].Id, vitA, unit_IU[0].Id, null));
                     }
                     if (vitB6 != 0)
                     {
-                        chosenType = db.Types_GetByName("Vitamin B6");
+                        chosenType = db.Types_GetByName(StringValues.vitB6);
                         Ingredients.Add(addIngredient(food.Id, chosenStyle.Id, chosenServingSize.Id, chosenType[0].Id, vitB6, unit_Miligram[0].Id, null));
                     }
                     if (vitB12 != 0)
                     {
-                        chosenType = db.Types_GetByName("Vitamin B12");
+                        chosenType = db.Types_GetByName(StringValues.vitB12);
                         Ingredients.Add(addIngredient(food.Id, chosenStyle.Id, chosenServingSize.Id, chosenType[0].Id, vitB12, unit_Microgram[0].Id, null));
                     }
                     if (vitC != 0)
                     {
-                        chosenType = db.Types_GetByName("Vitamin C");
+                        chosenType = db.Types_GetByName(StringValues.vitC);
                         Ingredients.Add(addIngredient(food.Id, chosenStyle.Id, chosenServingSize.Id, chosenType[0].Id, vitC, unit_Miligram[0].Id, null));
                     }
                     if (vitD != 0)
                     {
-                        chosenType = db.Types_GetByName("Vitamin D");
+                        chosenType = db.Types_GetByName(StringValues.vitD);
                         Ingredients.Add(addIngredient(food.Id, chosenStyle.Id, chosenServingSize.Id, chosenType[0].Id, vitD, unit_Miligram[0].Id, null));
                     }
                     if (vitE != 0)
                     {
-                        chosenType = db.Types_GetByName("Vitamin E");
+                        chosenType = db.Types_GetByName(StringValues.vitE);
                         Ingredients.Add(addIngredient(food.Id, chosenStyle.Id, chosenServingSize.Id, chosenType[0].Id, vitE, unit_Miligram[0].Id, null));
                     }
                     if (vitK != 0)
                     {
-                        chosenType = db.Types_GetByName("Vitamin K");
+                        chosenType = db.Types_GetByName(StringValues.vitK);
                         Ingredients.Add(addIngredient(food.Id, chosenStyle.Id, chosenServingSize.Id, chosenType[0].Id, vitK, unit_Microgram[0].Id, null));
                     }
                     if (thiamin != 0)
                     {
-                        chosenType = db.Types_GetByName("Thiamin");
+                        chosenType = db.Types_GetByName(StringValues.thiamin);
                         Ingredients.Add(addIngredient(food.Id, chosenStyle.Id, chosenServingSize.Id, chosenType[0].Id, thiamin, unit_Miligram[0].Id, null));
                     }
                     if (riboflavin != 0)
                     {
-                        chosenType = db.Types_GetByName("Riboflavin");
+                        chosenType = db.Types_GetByName(StringValues.riboflavin);
                         Ingredients.Add(addIngredient(food.Id, chosenStyle.Id, chosenServingSize.Id, chosenType[0].Id, riboflavin, unit_Miligram[0].Id, null));
                     }
                     if (niacin != 0)
                     {
-                        chosenType = db.Types_GetByName("Niacin");
+                        chosenType = db.Types_GetByName(StringValues.niacin);
                         Ingredients.Add(addIngredient(food.Id, chosenStyle.Id, chosenServingSize.Id, chosenType[0].Id, niacin, unit_Miligram[0].Id, null));
                     }
                     if (folate != 0)
                     {
-                        chosenType = db.Types_GetByName("Folate");
+                        chosenType = db.Types_GetByName(StringValues.folate);
                         Ingredients.Add(addIngredient(food.Id, chosenStyle.Id, chosenServingSize.Id, chosenType[0].Id, folate, unit_Microgram[0].Id, null));
                     }
                     if (panthothenicAcid != 0)
                     {
-                        chosenType = db.Types_GetByName("Panthothenic Acid");
+                        chosenType = db.Types_GetByName(StringValues.panthothenicAcid);
                         Ingredients.Add(addIngredient(food.Id, chosenStyle.Id, chosenServingSize.Id, chosenType[0].Id, panthothenicAcid, unit_Miligram[0].Id, null));
                     }
                     if (calcium != 0)
                     {
-                        chosenType = db.Types_GetByName("Calcium");
+                        chosenType = db.Types_GetByName(StringValues.calcium);
                         Ingredients.Add(addIngredient(food.Id, chosenStyle.Id, chosenServingSize.Id, chosenType[0].Id, calcium, unit_Miligram[0].Id, null));
                     }
                     if (iron != 0)
                     {
-                        chosenType = db.Types_GetByName("Iron");
+                        chosenType = db.Types_GetByName(StringValues.iron);
                         Ingredients.Add(addIngredient(food.Id, chosenStyle.Id, chosenServingSize.Id, chosenType[0].Id, iron, unit_Miligram[0].Id, null));
                     }
                     if (magnesium != 0)
                     {
-                        chosenType = db.Types_GetByName("Magnesium");
+                        chosenType = db.Types_GetByName(StringValues.magnesium);
                         Ingredients.Add(addIngredient(food.Id, chosenStyle.Id, chosenServingSize.Id, chosenType[0].Id, magnesium, unit_Miligram[0].Id, null));
                     }
                     if (phosphorus != 0)
                     {
-                        chosenType = db.Types_GetByName("Phosphorus");
+                        chosenType = db.Types_GetByName(StringValues.phosphorus);
                         Ingredients.Add(addIngredient(food.Id, chosenStyle.Id, chosenServingSize.Id, chosenType[0].Id, phosphorus, unit_Miligram[0].Id, null));
                     }
                     if (potassium != 0)
                     {
-                        chosenType = db.Types_GetByName("Potassium");
+                        chosenType = db.Types_GetByName(StringValues.potassium);
                         Ingredients.Add(addIngredient(food.Id, chosenStyle.Id, chosenServingSize.Id, chosenType[0].Id, potassium, unit_Miligram[0].Id, null));
                     }
                     if (sodium != 0)
                     {
-                        chosenType = db.Types_GetByName("Sodium");
+                        chosenType = db.Types_GetByName(StringValues.sodium);
                         Ingredients.Add(addIngredient(food.Id, chosenStyle.Id, chosenServingSize.Id, chosenType[0].Id, sodium, unit_Miligram[0].Id, null));
                     }
                     if (zinc != 0)
                     {
-                        chosenType = db.Types_GetByName("Zinc");
+                        chosenType = db.Types_GetByName(StringValues.zinc);
                         Ingredients.Add(addIngredient(food.Id, chosenStyle.Id, chosenServingSize.Id, chosenType[0].Id, zinc, unit_Miligram[0].Id, null));
                     }
                     if (copper != 0)
                     {
-                        chosenType = db.Types_GetByName("Copper");
+                        chosenType = db.Types_GetByName(StringValues.copper);
                         Ingredients.Add(addIngredient(food.Id, chosenStyle.Id, chosenServingSize.Id, chosenType[0].Id, copper, unit_Miligram[0].Id, null));
                     }
                     if (manganese != 0)
                     {
-                        chosenType = db.Types_GetByName("Manganese");
+                        chosenType = db.Types_GetByName(StringValues.manganese);
                         Ingredients.Add(addIngredient(food.Id, chosenStyle.Id, chosenServingSize.Id, chosenType[0].Id, manganese, unit_Miligram[0].Id, null));
                     }
                     if (selenium != 0)
                     {
-                        chosenType = db.Types_GetByName("Selenium");
+                        chosenType = db.Types_GetByName(StringValues.selenium);
                         Ingredients.Add(addIngredient(food.Id, chosenStyle.Id, chosenServingSize.Id, chosenType[0].Id, selenium, unit_Microgram[0].Id, null));
                     }
 
                     try
                     {
                         var result = db.InsertIngredientsForFood(Ingredients);
-                        if (result) MessageBox.Show("Wohoo Food and ingredients added!!");
+                        if (result)
+                        {
+                            ClearTextboxes();
+                            MessageBox.Show("Food and ingredients added!!", "Success!");
+                        }
                     }
                     catch (Exception)
                     {
@@ -880,7 +888,6 @@ namespace NutritionUI
             {
                 throw new Exception("Food could not be created");
             }
-
 
         }
 
@@ -896,6 +903,52 @@ namespace NutritionUI
             i.Notes = Notes;
 
             return i;
+        }
+
+        private void ClearTextboxes()
+        {
+            foodNameTextbox.Text = StringValues.foodName;
+            aminoAcidScoreTextbox.Text = StringValues.aminoAcidScore;
+            completnessScoreTextbox.Text = StringValues.completnessScore;
+            GITextbox.Text = StringValues.GI;
+            cholesterolTextbox.Text = StringValues.cholesterol + "(mg)";
+            starchTextbox.Text = StringValues.starch;
+            sugarsTextbox.Text = StringValues.sugars;
+            carbsTextbox.Text = StringValues.carbs;
+            proteinsTextbox.Text = StringValues.proteins;
+            caloriesTextbox.Text = StringValues.calories;
+            dietaryFiberTextbox.Text = StringValues.dietaryFibers;
+            fiberTextbox.Text = StringValues.fibers;
+            omega3FatTextbox.Text = StringValues.omega3Fat;
+            transFatTextbox.Text = StringValues.transFat;
+            polyUnsaturatedFatTextbox.Text = StringValues.polyUnsaturatedFat;
+            monoUnsaturatedFatTextbox.Text = StringValues.monoUnsaturatedFat;
+            saturatedFatTextbox.Text = StringValues.saturatedFat;
+            totalFatTextbox.Text = StringValues.totalFat;
+            omega6FatTextbox.Text = StringValues.omega6Fat;
+            panthothenicAcidTextbox.Text = StringValues.panthothenicAcid;
+            folateTextbox.Text = StringValues.folate;
+            niacinTextbox.Text = StringValues.niacin;
+            riboflavinTextbox.Text = StringValues.riboflavin;
+            vitDTextbox.Text = StringValues.vitD;
+            thiaminTextbox.Text = StringValues.thiamin;
+            vitKTextbox.Text = StringValues.vitK;
+            vitETextbox.Text = StringValues.vitE;
+            vitCTextbox.Text = StringValues.vitC;
+            vitB12Textbox.Text = StringValues.vitB12;
+            vitB6Textbox.Text = StringValues.vitB6;
+            vitATextbox.Text = StringValues.vitA;
+            seleniumTextbox.Text = StringValues.selenium;
+            manganeseTextbox.Text = StringValues.manganese;
+            copperTextbox.Text = StringValues.copper;
+            phosphorusTextbox.Text = StringValues.phosphorus;
+            zincTextbox.Text = StringValues.zinc;
+            sodiumTextbox.Text = StringValues.sodium;
+            potassiumTextbox.Text = StringValues.potassium;
+            magnesiumTextbox.Text = StringValues.magnesium;
+            ironTextbox.Text = StringValues.iron;
+            calciumTextbox.Text = StringValues.calcium;
+            foodNotesTextbox.Text = StringValues.foodNotes;
         }
 
 
