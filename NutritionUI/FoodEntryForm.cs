@@ -15,7 +15,7 @@ namespace NutritionUI
     public partial class FoodEntryForm : Form
     {
         private string foodName = null;
-        private string foodNotes = "";
+        private string foodNotes = null;
         private decimal GI = 0;
         private decimal completnessScore = 0;
         private decimal aminoAcidScore = 0;
@@ -634,7 +634,7 @@ namespace NutritionUI
         }
         private void foodNotesTextbox_Leave(object sender, EventArgs e)
         {
-            if (foodNotesTextbox.Text.Length != 0 && foodNotesTextbox.Text != StringValues.foodNotes) foodNotes = foodNotesTextbox.Text;
+            if (foodNotesTextbox.Text.Length != 0 || foodNotesTextbox.Text != StringValues.foodNotes) foodNotes = foodNotesTextbox.Text;
             else foodNotesTextbox.Text = StringValues.foodNotes;
         }
 
@@ -656,11 +656,13 @@ namespace NutritionUI
 
             // Need to create food first to be able to get back the ID first
             FoodModel food = new FoodModel();
-            food.Name = foodNameTextbox.Text.Length != 0 ? foodNameTextbox.Text : null;
-            food.Notes = foodNotesTextbox.Text.Length != 0 ? foodNotesTextbox.Text : null;
+
+            if (foodNameTextbox.Text.Length != 0 && foodNameTextbox.Text != StringValues.foodName) food.Name = foodNameTextbox.Text;
+            if (foodNotesTextbox.Text.Length != 0 && foodNotesTextbox.Text != StringValues.foodNotes) food.Notes = foodNotesTextbox.Text;
 
             try
             {
+                // TODO: When i add food&ingredient all resets but vars need reseting
                 food = db.InsertFood(food);
            
                 if (food.Id > 0)

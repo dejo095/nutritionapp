@@ -44,8 +44,6 @@ namespace NutritionLibrary.DataAccess
         {
             List<TypeModel> output;
 
-            // TODO: what if no unit aka new entered
-
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(GlobalConfig.CnnString(dbName)))
             {
                 var p = new DynamicParameters();
@@ -59,8 +57,6 @@ namespace NutritionLibrary.DataAccess
         public List<UnitModel> Units_GetByName(string name)
         {
             List<UnitModel> output;
-
-            // TODO: what if no unit aka new entered
 
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(GlobalConfig.CnnString(dbName)))
             {
