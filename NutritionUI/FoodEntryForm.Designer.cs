@@ -86,7 +86,7 @@ namespace NutritionUI
             this.numberOfFoodLabel = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.actionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.addServingSizeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.addServingSizeMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addFoodStyleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.copyrightLabel = new System.Windows.Forms.Label();
             this.MainGroupbox.SuspendLayout();
@@ -614,22 +614,23 @@ namespace NutritionUI
             // actionsToolStripMenuItem
             // 
             this.actionsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.addServingSizeToolStripMenuItem,
+            this.addServingSizeMenuItem,
             this.addFoodStyleToolStripMenuItem});
             this.actionsToolStripMenuItem.Name = "actionsToolStripMenuItem";
             this.actionsToolStripMenuItem.Size = new System.Drawing.Size(59, 20);
             this.actionsToolStripMenuItem.Text = "Actions";
             // 
-            // addServingSizeToolStripMenuItem
+            // addServingSizeMenuItem
             // 
-            this.addServingSizeToolStripMenuItem.Name = "addServingSizeToolStripMenuItem";
-            this.addServingSizeToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
-            this.addServingSizeToolStripMenuItem.Text = "Add Serving Size";
+            this.addServingSizeMenuItem.Name = "addServingSizeMenuItem";
+            this.addServingSizeMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.addServingSizeMenuItem.Text = "Add Serving Size";
+            this.addServingSizeMenuItem.Click += new System.EventHandler(this.addServingSizeMenuItem_Click);
             // 
             // addFoodStyleToolStripMenuItem
             // 
             this.addFoodStyleToolStripMenuItem.Name = "addFoodStyleToolStripMenuItem";
-            this.addFoodStyleToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
+            this.addFoodStyleToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.addFoodStyleToolStripMenuItem.Text = "Add Food Style";
             // 
             // copyrightLabel
@@ -741,7 +742,7 @@ namespace NutritionUI
         private Panel foodForm_panel;
         private MenuStrip menuStrip1;
         private ToolStripMenuItem actionsToolStripMenuItem;
-        private ToolStripMenuItem addServingSizeToolStripMenuItem;
+        private ToolStripMenuItem addServingSizeMenuItem;
         private ToolStripMenuItem addFoodStyleToolStripMenuItem;
         private Label copyrightLabel;
         private Label numberOfFoodLabel;

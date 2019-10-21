@@ -137,5 +137,16 @@ namespace NutritionLibrary.DataAccess
             }
 
         }
+
+        public void Foods_Remove(FoodModel food)
+        {
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(GlobalConfig.CnnString(dbName)))
+            {
+                var p = new DynamicParameters();
+                p.Add("@Id", food.Id);
+                connection.Query<FoodModel>("dbo.spFoods_Remove", p, commandType: CommandType.StoredProcedure);
+            }
+        }
+
     }
 }

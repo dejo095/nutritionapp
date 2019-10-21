@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddServingSizeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddServingSizeForm.Designer.cs">
+      <DependentUpon>AddServingSizeForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="FoodEntryForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -54,6 +60,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="AddServingSizeForm.resx">
+      <DependentUpon>AddServingSizeForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FoodEntryForm.resx">
       <DependentUpon>FoodEntryForm.cs</DependentUpon>
     </EmbeddedResource>
