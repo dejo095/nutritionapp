@@ -68,6 +68,18 @@ namespace NutritionLibrary.DataAccess
             return output;
         }
 
+        public List<UnitModel> Units_GetAll()
+        {
+            List<UnitModel> output;
+
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(GlobalConfig.CnnString(dbName)))
+            {
+                output = connection.Query<UnitModel>("dbo.spUnits_GetAll", commandType: CommandType.StoredProcedure).ToList();
+            }
+
+            return output;
+        }
+
         public FoodModel InsertFood(FoodModel food)
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(GlobalConfig.CnnString(dbName)))
@@ -91,7 +103,7 @@ namespace NutritionLibrary.DataAccess
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(GlobalConfig.CnnString(dbName)))
             {
-                
+
                 foreach (IngredientModel ingredient in ingredients)
                 {
                     var p = new DynamicParameters();
@@ -114,7 +126,7 @@ namespace NutritionLibrary.DataAccess
                     }
 
                 }
-                               
+
                 return true;
             }
         }
@@ -135,7 +147,6 @@ namespace NutritionLibrary.DataAccess
 
                 return output;
             }
-
         }
 
         public void Foods_Remove(FoodModel food)
@@ -148,5 +159,42 @@ namespace NutritionLibrary.DataAccess
             }
         }
 
+        public ServingSizeModel ServingSizes_Insert(ServingSizeModel model)
+        {
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(GlobalConfig.CnnString(dbName)))
+            {
+                var p = new DynamicParameters();
+
+                p.Add("@Name", model.Name);
+                p.Add("@DataValue", model.DataValue);
+                p.Add("@Unit_Id", model.UnitId);
+
+                p.Add("@Id", 0, dbType: DbType.Int32, direction: ParameterDirection.Output);
+
+                connection.Execute("dbo.spServingSizes_Insert", p, commandType: CommandType.StoredProcedure);
+
+                model.Id = p.Get<int>("@Id");
+
+                return model;
+            }
+        }
+
+        public StyleModel Styles_Insert(StyleModel model)
+        {
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(GlobalConfig.CnnString(dbName)))
+            {
+                var p = new DynamicParameters();
+
+                p.Add("@Name", model.Name);
+
+                p.Add("@Id", 0, dbType: DbType.Int32, direction: ParameterDirection.Output);
+
+                connection.Execute("dbo.spStyles_Insert", p, commandType: CommandType.StoredProcedure);
+
+                model.Id = p.Get<int>("@Id");
+
+                return model;
+            }
+        }
     }
 }

@@ -61,6 +61,10 @@ namespace NutritionUI
         private List<ServingSizeModel> ServingSizeList = new List<ServingSizeModel>();
         private List<IngredientModel> Ingredients = new List<IngredientModel>();
 
+        // modal forms
+        private AddServingSizeForm ServingSizeForm = new AddServingSizeForm();
+        private AddStyleForm StyleForm = new AddStyleForm();
+
         public FoodEntryForm()
         {
             InitializeComponent();
@@ -193,6 +197,9 @@ namespace NutritionUI
 
             this.foodNotesTextbox.Enter += new System.EventHandler(this.foodNotesTextbox_Enter);
             this.foodNotesTextbox.Leave += new System.EventHandler(this.foodNotesTextbox_Leave);
+
+            ServingSizeForm.FormClosed += OnServingSizeFormClosed;
+            StyleForm.FormClosed += OnStyleFormClosed;
         }
 
         private void populateComboboxes()
@@ -636,6 +643,17 @@ namespace NutritionUI
             else foodNotesTextbox.Text = StringValues.foodNotes;
         }
 
+        private void OnServingSizeFormClosed(object sender, FormClosedEventArgs e)
+        {
+            populateComboboxes();
+            ServingSizeForm.FormClosed -= OnServingSizeFormClosed;
+        }
+
+        private void OnStyleFormClosed(object sender, FormClosedEventArgs e)
+        {
+            populateComboboxes();
+            StyleForm.FormClosed -= OnStyleFormClosed;
+        }
 
         private void addFoodButton_Click(object sender, EventArgs e)
         {
@@ -654,7 +672,7 @@ namespace NutritionUI
 
             // Need to create food first to be able to get back the ID first
             FoodModel food = new FoodModel();
-            FoodModel insertedFood = null;
+            FoodModel insertedFood;
 
             if (foodNameTextbox.Text.Length != 0 && foodNameTextbox.Text != StringValues.foodName) food.Name = foodNameTextbox.Text;
             if (foodNotesTextbox.Text.Length != 0 && foodNotesTextbox.Text != StringValues.foodNotes) food.Notes = foodNotesTextbox.Text;
@@ -1016,8 +1034,13 @@ namespace NutritionUI
 
         private void addServingSizeMenuItem_Click(object sender, EventArgs e)
         {
-            AddServingSizeForm frm = new AddServingSizeForm();
-            frm.ShowDialog(this);
+            
+            ServingSizeForm.ShowDialog(this);
+        }
+
+        private void addFoodStyleToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            StyleForm.ShowDialog(this);
         }
     }
 }

@@ -632,6 +632,7 @@ namespace NutritionUI
             this.addFoodStyleToolStripMenuItem.Name = "addFoodStyleToolStripMenuItem";
             this.addFoodStyleToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.addFoodStyleToolStripMenuItem.Text = "Add Food Style";
+            this.addFoodStyleToolStripMenuItem.Click += new System.EventHandler(this.addFoodStyleToolStripMenuItem_Click);
             // 
             // copyrightLabel
             // 

@@ -21,6 +21,8 @@ namespace NutritionLibrary
         // for getting Unit id which woill be used in saving ingredient data
         List<UnitModel> Units_GetByName(string name);
 
+        List<UnitModel> Units_GetAll();
+
         FoodModel InsertFood(FoodModel food);
 
         bool InsertIngredientsForFood(List<IngredientModel> ingredients);
@@ -28,5 +30,9 @@ namespace NutritionLibrary
         int Foods_GetSum();
 
         void Foods_Remove(FoodModel food);
+
+        ServingSizeModel ServingSizes_Insert(ServingSizeModel model);
+
+        StyleModel Styles_Insert(StyleModel model);
     }
 }

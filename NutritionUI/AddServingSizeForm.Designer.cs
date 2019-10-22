@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.servingSizeTextbox = new System.Windows.Forms.TextBox();
+            this.dataValueTextbox = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.UnitsCombobox = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -46,19 +46,19 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Display Name";
             // 
-            // textBox1
+            // servingSizeTextbox
             // 
-            this.textBox1.Location = new System.Drawing.Point(12, 29);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(186, 25);
-            this.textBox1.TabIndex = 1;
+            this.servingSizeTextbox.Location = new System.Drawing.Point(12, 29);
+            this.servingSizeTextbox.Name = "servingSizeTextbox";
+            this.servingSizeTextbox.Size = new System.Drawing.Size(186, 25);
+            this.servingSizeTextbox.TabIndex = 1;
             // 
-            // textBox2
+            // dataValueTextbox
             // 
-            this.textBox2.Location = new System.Drawing.Point(12, 77);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(71, 25);
-            this.textBox2.TabIndex = 3;
+            this.dataValueTextbox.Location = new System.Drawing.Point(12, 77);
+            this.dataValueTextbox.Name = "dataValueTextbox";
+            this.dataValueTextbox.Size = new System.Drawing.Size(71, 25);
+            this.dataValueTextbox.TabIndex = 2;
             // 
             // label2
             // 
@@ -69,13 +69,14 @@
             this.label2.TabIndex = 2;
             this.label2.Text = "Numeric value";
             // 
-            // comboBox1
+            // UnitsCombobox
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(108, 77);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(90, 25);
-            this.comboBox1.TabIndex = 4;
+            this.UnitsCombobox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.UnitsCombobox.FormattingEnabled = true;
+            this.UnitsCombobox.Location = new System.Drawing.Point(108, 77);
+            this.UnitsCombobox.Name = "UnitsCombobox";
+            this.UnitsCombobox.Size = new System.Drawing.Size(90, 25);
+            this.UnitsCombobox.TabIndex = 3;
             // 
             // label3
             // 
@@ -91,9 +92,10 @@
             this.button1.Location = new System.Drawing.Point(108, 114);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(90, 39);
-            this.button1.TabIndex = 6;
+            this.button1.TabIndex = 4;
             this.button1.Text = "Create";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // AddServingSizeForm
             // 
@@ -103,10 +105,10 @@
             this.ClientSize = new System.Drawing.Size(214, 170);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.UnitsCombobox);
+            this.Controls.Add(this.dataValueTextbox);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.servingSizeTextbox);
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -126,10 +128,10 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox servingSizeTextbox;
+        private System.Windows.Forms.TextBox dataValueTextbox;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox UnitsCombobox;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button button1;
     }
