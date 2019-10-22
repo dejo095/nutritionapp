@@ -14,9 +14,11 @@ namespace NutritionUI
 {
     public partial class AddServingSizeForm : Form
     {
+        public ServingSizeModel createdModel { get; private set; }
+
         private string servingSizeName = null;
         private decimal dataValue = 0;
-
+        
         public AddServingSizeForm()
         {
             InitializeComponent();
@@ -75,6 +77,7 @@ namespace NutritionUI
                 if (result.Id != 0) 
                 {
                     MessageBox.Show("Serving Size added successfully");
+                    this.createdModel = result;
                     this.Close();
                 }
 

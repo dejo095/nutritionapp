@@ -68,7 +68,8 @@ namespace NutritionUI
         public FoodEntryForm()
         {
             InitializeComponent();
-            populateComboboxes();
+            populateStylesCombobox();
+            populateServingSizesCombobox();
 
             numberOfFoodLabel.Text = Foods_GetCount();
             
@@ -202,20 +203,20 @@ namespace NutritionUI
             StyleForm.FormClosed += OnStyleFormClosed;
         }
 
-        private void populateComboboxes()
+        private void populateStylesCombobox()
         {
             foodStyleCombobox.DataSource = null;
-            servingSizeCombobox.DataSource = null;
-
-            // call method that executes stored procedure on db
             FoodStylesList = GlobalConfig.Connection.Styles_GetAll();
             foodStyleCombobox.DataSource = FoodStylesList;
             foodStyleCombobox.DisplayMember = "Name";
+        }
 
+        private void populateServingSizesCombobox()
+        {
+            servingSizeCombobox.DataSource = null;
             ServingSizeList = GlobalConfig.Connection.ServingSizes_GetAll();
             servingSizeCombobox.DataSource = ServingSizeList;
             servingSizeCombobox.DisplayMember = "Name";
-
         }
 
         private void foodNameTextbox_Enter(object sender, EventArgs e)
@@ -645,13 +646,16 @@ namespace NutritionUI
 
         private void OnServingSizeFormClosed(object sender, FormClosedEventArgs e)
         {
-            populateComboboxes();
+            ServingSizeForm = (AddServingSizeForm)sender; // we get data from ServingSizeForm when it closes /// dont need it at all
+            populateServingSizesCombobox();
+            servingSizeCombobox.SelectedIndex = servingSizeCombobox.Items.Count - 1;
             ServingSizeForm.FormClosed -= OnServingSizeFormClosed;
         }
 
         private void OnStyleFormClosed(object sender, FormClosedEventArgs e)
         {
-            populateComboboxes();
+            populateStylesCombobox();
+            foodStyleCombobox.SelectedIndex = foodStyleCombobox.Items.Count - 1; // quick and dirty way to choose last one (added), after update on list
             StyleForm.FormClosed -= OnStyleFormClosed;
         }
 
