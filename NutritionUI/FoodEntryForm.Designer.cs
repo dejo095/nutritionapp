@@ -89,6 +89,7 @@ namespace NutritionUI
             this.addServingSizeMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addFoodStyleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.copyrightLabel = new System.Windows.Forms.Label();
+            this.addNewUnitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MainGroupbox.SuspendLayout();
             this.CaloriesGroupbox.SuspendLayout();
             this.fibersGroupbox.SuspendLayout();
@@ -615,7 +616,8 @@ namespace NutritionUI
             // 
             this.actionsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.addServingSizeMenuItem,
-            this.addFoodStyleToolStripMenuItem});
+            this.addFoodStyleToolStripMenuItem,
+            this.addNewUnitToolStripMenuItem});
             this.actionsToolStripMenuItem.Name = "actionsToolStripMenuItem";
             this.actionsToolStripMenuItem.Size = new System.Drawing.Size(59, 20);
             this.actionsToolStripMenuItem.Text = "Actions";
@@ -644,6 +646,13 @@ namespace NutritionUI
             this.copyrightLabel.Size = new System.Drawing.Size(143, 13);
             this.copyrightLabel.TabIndex = 11;
             this.copyrightLabel.Text = "Created @10/2019 by Dejo";
+            // 
+            // addNewUnitToolStripMenuItem
+            // 
+            this.addNewUnitToolStripMenuItem.Name = "addNewUnitToolStripMenuItem";
+            this.addNewUnitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.addNewUnitToolStripMenuItem.Text = "Add new Unit";
+            this.addNewUnitToolStripMenuItem.Click += new System.EventHandler(this.addNewUnitToolStripMenuItem_Click);
             // 
             // FoodEntryForm
             // 
@@ -747,6 +756,7 @@ namespace NutritionUI
         private ToolStripMenuItem addFoodStyleToolStripMenuItem;
         private Label copyrightLabel;
         private Label numberOfFoodLabel;
+        private ToolStripMenuItem addNewUnitToolStripMenuItem;
     }
 }
 

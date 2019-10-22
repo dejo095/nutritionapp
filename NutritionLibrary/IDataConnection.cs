@@ -34,5 +34,7 @@ namespace NutritionLibrary
         ServingSizeModel ServingSizes_Insert(ServingSizeModel model);
 
         StyleModel Styles_Insert(StyleModel model);
+
+        UnitModel Units_Insert(UnitModel model);
     }
 }

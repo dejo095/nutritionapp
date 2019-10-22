@@ -64,6 +64,7 @@ namespace NutritionUI
         // modal forms
         private AddServingSizeForm ServingSizeForm = new AddServingSizeForm();
         private AddStyleForm StyleForm = new AddStyleForm();
+        private AddUnitForm UnitForm = new AddUnitForm();
 
         public FoodEntryForm()
         {
@@ -1045,6 +1046,11 @@ namespace NutritionUI
         private void addFoodStyleToolStripMenuItem_Click(object sender, EventArgs e)
         {
             StyleForm.ShowDialog(this);
+        }
+
+        private void addNewUnitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            UnitForm.ShowDialog(this);
         }
     }
 }

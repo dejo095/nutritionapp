@@ -196,5 +196,24 @@ namespace NutritionLibrary.DataAccess
                 return model;
             }
         }
+
+        public UnitModel Units_Insert(UnitModel model)
+        {
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(GlobalConfig.CnnString(dbName)))
+            {
+                var p = new DynamicParameters();
+
+                p.Add("@Name", model.Name);
+                p.Add("@Description", model.Description);
+
+                p.Add("@Id", 0, dbType: DbType.Int32, direction: ParameterDirection.Output);
+
+                connection.Execute("dbo.spUnits_Insert", p, commandType: CommandType.StoredProcedure);
+
+                model.Id = p.Get<int>("@Id");
+
+                return model;
+            }
+        }
     }
 }
