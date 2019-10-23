@@ -84,12 +84,8 @@ namespace NutritionUI
             this.NameGroupbox = new System.Windows.Forms.GroupBox();
             this.foodForm_panel = new System.Windows.Forms.Panel();
             this.numberOfFoodLabel = new System.Windows.Forms.Label();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.actionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.addServingSizeMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.addFoodStyleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.copyrightLabel = new System.Windows.Forms.Label();
-            this.addNewUnitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.backToDashboardFormButton = new System.Windows.Forms.LinkLabel();
             this.MainGroupbox.SuspendLayout();
             this.CaloriesGroupbox.SuspendLayout();
             this.fibersGroupbox.SuspendLayout();
@@ -98,7 +94,6 @@ namespace NutritionUI
             this.mineralsGroupbox.SuspendLayout();
             this.NameGroupbox.SuspendLayout();
             this.foodForm_panel.SuspendLayout();
-            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // foodNameTextbox
@@ -433,6 +428,7 @@ namespace NutritionUI
             // 
             // mineralsGroupbox
             // 
+            this.mineralsGroupbox.Controls.Add(this.copyrightLabel);
             this.mineralsGroupbox.Controls.Add(this.seleniumTextbox);
             this.mineralsGroupbox.Controls.Add(this.manganeseTextbox);
             this.mineralsGroupbox.Controls.Add(this.copperTextbox);
@@ -602,57 +598,27 @@ namespace NutritionUI
             this.numberOfFoodLabel.TabIndex = 9;
             this.numberOfFoodLabel.Text = "# food in db:";
             // 
-            // menuStrip1
-            // 
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.actionsToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(838, 24);
-            this.menuStrip1.TabIndex = 10;
-            this.menuStrip1.Text = "menuStrip1";
-            // 
-            // actionsToolStripMenuItem
-            // 
-            this.actionsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.addServingSizeMenuItem,
-            this.addFoodStyleToolStripMenuItem,
-            this.addNewUnitToolStripMenuItem});
-            this.actionsToolStripMenuItem.Name = "actionsToolStripMenuItem";
-            this.actionsToolStripMenuItem.Size = new System.Drawing.Size(59, 20);
-            this.actionsToolStripMenuItem.Text = "Actions";
-            // 
-            // addServingSizeMenuItem
-            // 
-            this.addServingSizeMenuItem.Name = "addServingSizeMenuItem";
-            this.addServingSizeMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.addServingSizeMenuItem.Text = "Add Serving Size";
-            this.addServingSizeMenuItem.Click += new System.EventHandler(this.addServingSizeMenuItem_Click);
-            // 
-            // addFoodStyleToolStripMenuItem
-            // 
-            this.addFoodStyleToolStripMenuItem.Name = "addFoodStyleToolStripMenuItem";
-            this.addFoodStyleToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.addFoodStyleToolStripMenuItem.Text = "Add Food Style";
-            this.addFoodStyleToolStripMenuItem.Click += new System.EventHandler(this.addFoodStyleToolStripMenuItem_Click);
-            // 
             // copyrightLabel
             // 
             this.copyrightLabel.AutoSize = true;
             this.copyrightLabel.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.copyrightLabel.ForeColor = System.Drawing.Color.DarkGray;
-            this.copyrightLabel.Location = new System.Drawing.Point(679, 6);
+            this.copyrightLabel.Location = new System.Drawing.Point(28, 346);
             this.copyrightLabel.Name = "copyrightLabel";
             this.copyrightLabel.Size = new System.Drawing.Size(143, 13);
             this.copyrightLabel.TabIndex = 11;
             this.copyrightLabel.Text = "Created @10/2019 by Dejo";
             // 
-            // addNewUnitToolStripMenuItem
+            // backToDashboardFormButton
             // 
-            this.addNewUnitToolStripMenuItem.Name = "addNewUnitToolStripMenuItem";
-            this.addNewUnitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.addNewUnitToolStripMenuItem.Text = "Add new Unit";
-            this.addNewUnitToolStripMenuItem.Click += new System.EventHandler(this.addNewUnitToolStripMenuItem_Click);
+            this.backToDashboardFormButton.AutoSize = true;
+            this.backToDashboardFormButton.Location = new System.Drawing.Point(12, 11);
+            this.backToDashboardFormButton.Name = "backToDashboardFormButton";
+            this.backToDashboardFormButton.Size = new System.Drawing.Size(91, 17);
+            this.backToDashboardFormButton.TabIndex = 10;
+            this.backToDashboardFormButton.TabStop = true;
+            this.backToDashboardFormButton.Text = "<- Dashboard";
+            this.backToDashboardFormButton.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.backToDashboardFormButton_LinkClicked);
             // 
             // FoodEntryForm
             // 
@@ -660,12 +626,10 @@ namespace NutritionUI
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(838, 539);
-            this.Controls.Add(this.copyrightLabel);
+            this.Controls.Add(this.backToDashboardFormButton);
             this.Controls.Add(this.foodForm_panel);
-            this.Controls.Add(this.menuStrip1);
             this.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.Color.Black;
-            this.MainMenuStrip = this.menuStrip1;
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.MaximizeBox = false;
             this.Name = "FoodEntryForm";
@@ -688,8 +652,6 @@ namespace NutritionUI
             this.NameGroupbox.PerformLayout();
             this.foodForm_panel.ResumeLayout(false);
             this.foodForm_panel.PerformLayout();
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -750,13 +712,9 @@ namespace NutritionUI
         private System.Windows.Forms.GroupBox NameGroupbox;
         private System.Windows.Forms.ComboBox servingSizeCombobox;
         private Panel foodForm_panel;
-        private MenuStrip menuStrip1;
-        private ToolStripMenuItem actionsToolStripMenuItem;
-        private ToolStripMenuItem addServingSizeMenuItem;
-        private ToolStripMenuItem addFoodStyleToolStripMenuItem;
         private Label copyrightLabel;
         private Label numberOfFoodLabel;
-        private ToolStripMenuItem addNewUnitToolStripMenuItem;
+        private LinkLabel backToDashboardFormButton;
     }
 }
 

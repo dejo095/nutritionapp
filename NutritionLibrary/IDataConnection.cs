@@ -9,23 +9,17 @@ namespace NutritionLibrary
 {
     public interface IDataConnection
     {
-        // for getting food styles we will use to populate combobox
-        List<StyleModel> Styles_GetAll();
-
-        // for getting serving sizes we will use to populate combobox
-        List<ServingSizeModel> ServingSizes_GetAll();
-
-        // for getting type id which woill be used in saving ingredient data
         List<TypeModel> Types_GetByName(string name);
 
-        // for getting Unit id which woill be used in saving ingredient data
+
+        UnitModel Units_Insert(UnitModel model);
+
         List<UnitModel> Units_GetByName(string name);
 
         List<UnitModel> Units_GetAll();
 
-        FoodModel InsertFood(FoodModel food);
 
-        bool InsertIngredientsForFood(List<IngredientModel> ingredients);
+        FoodModel InsertFood(FoodModel food);
 
         int Foods_GetSum();
 
@@ -34,11 +28,16 @@ namespace NutritionLibrary
         List<FoodModel> Foods_FindAll(string name);
 
         void Foods_Remove(FoodModel food);
+        bool InsertIngredientsForFood(List<IngredientModel> ingredients);
+
 
         ServingSizeModel ServingSizes_Insert(ServingSizeModel model);
+        List<ServingSizeModel> ServingSizes_GetAll();
+
 
         StyleModel Styles_Insert(StyleModel model);
+        List<StyleModel> Styles_GetAll();
 
-        UnitModel Units_Insert(UnitModel model);
+
     }
 }

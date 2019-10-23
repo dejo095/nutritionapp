@@ -13,8 +13,6 @@ namespace NutritionLibrary.DataAccess
     {
         private const string dbName = "nutritionapp";
 
-        // Here goes methods that will execute stored procedures
-        // Methods used here are the ones from IDataConnection interface, so first declare them there
 
         public List<StyleModel> Styles_GetAll()
         {

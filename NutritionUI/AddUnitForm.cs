@@ -40,8 +40,12 @@ namespace NutritionUI
                 if (res.Id != 0)
                 {
                     MessageBox.Show("Unit added successfully");
+                    //TODO: do not close the form after adding for units and serving sizes
                     this.Close();
                 }
+                // TODO: unit is not nulled after I create one
+
+                // TODO: after adding unit of measure, and I go to add servign size new units are not populated
             }
             else
             {

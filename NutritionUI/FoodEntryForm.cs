@@ -1050,5 +1050,12 @@ namespace NutritionUI
         {
             UnitForm.ShowDialog(this);
         }
+
+        private void backToDashboardFormButton_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            this.Close();
+            DashboardForm frm = new DashboardForm();
+            frm.Show();
+        }
     }
 }

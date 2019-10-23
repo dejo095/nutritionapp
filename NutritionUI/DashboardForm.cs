@@ -15,7 +15,7 @@ namespace NutritionUI
     public partial class DashboardForm : Form
     {
         private List<FoodModel> foods = new List<FoodModel>();
-        private FoodEntryForm FoodForm = new FoodEntryForm();
+        
         public DashboardForm()
         {
             InitializeComponent();
@@ -57,15 +57,44 @@ namespace NutritionUI
         {
             try
             {
-                var selectedItem = (FoodModel)foundFoodsListview.SelectedItems[0].Tag;
-                this.Hide();
-                FoodForm.Show();
+                //var selectedItem = (FoodModel)foundFoodsListview.SelectedItems[0].Tag;
+                //this.Hide();
+                //FoodForm.Show();
     }
             catch (Exception)
             {
 
                 throw;
             }
+        }
+
+        private void dataGridView1_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+          
+        }
+
+        private void addNewFoodButton_Click(object sender, EventArgs e)
+        {
+            FoodEntryForm FoodForm = new FoodEntryForm();
+            FoodForm.ShowDialog(this);
+        }
+
+        private void addNewUnitButton_Click(object sender, EventArgs e)
+        {
+            AddUnitForm UnitForm = new AddUnitForm();
+            UnitForm.ShowDialog(this);
+        }
+
+        private void addServingSizeButton_Click(object sender, EventArgs e)
+        {
+            AddServingSizeForm ServingSizeForm = new AddServingSizeForm();
+            ServingSizeForm.ShowDialog(this);
+        }
+
+        private void addNewStyleButton_Click(object sender, EventArgs e)
+        {
+            AddStyleForm StyleForm = new AddStyleForm();
+            StyleForm.ShowDialog(this);
         }
     }
 }
