@@ -684,239 +684,237 @@ namespace NutritionUI
 
             try
             {
-                if (food.Name.Length != 0)
-                {
-                    insertedFood = db.InsertFood(food);
+                insertedFood = db.InsertFood(food);
 
-                    if (insertedFood.Id > 0)
+                if (insertedFood.Id > 0)
+                {
+                    // Then lets create ingredients
+                    if (GI != 0)
                     {
-                        // Then lets create ingredients
-                        if (GI != 0)
-                        {
-                            chosenType = db.Types_GetByName(StringValues.GI);
-                            Ingredients.Add(addIngredient(insertedFood.Id, chosenStyle.Id, chosenServingSize.Id, chosenType[0].Id, GI, no_unit[0].Id, null));
-                        }
-                        if (completnessScore != 0)
-                        {
-                            chosenType = db.Types_GetByName(StringValues.completnessScore);
-                            Ingredients.Add(addIngredient(insertedFood.Id, chosenStyle.Id, chosenServingSize.Id, chosenType[0].Id, completnessScore, no_unit[0].Id, null));
-                        }
-                        if (aminoAcidScore != 0)
-                        {
-                            chosenType = db.Types_GetByName(StringValues.aminoAcidScore);
-                            Ingredients.Add(addIngredient(insertedFood.Id, chosenStyle.Id, chosenServingSize.Id, chosenType[0].Id, aminoAcidScore, no_unit[0].Id, null));
-                        }
-                        if (calories != 0)
-                        {
-                            chosenType = db.Types_GetByName(StringValues.calories);
-                            Ingredients.Add(addIngredient(insertedFood.Id, chosenStyle.Id, chosenServingSize.Id, chosenType[0].Id, calories, no_unit[0].Id, null));
-                        }
-                        if (proteins != 0)
-                        {
-                            chosenType = db.Types_GetByName(StringValues.proteins);
-                            Ingredients.Add(addIngredient(insertedFood.Id, chosenStyle.Id, chosenServingSize.Id, chosenType[0].Id, proteins, unit_Gram[0].Id, null));
-                        }
-                        if (carbs != 0)
-                        {
-                            chosenType = db.Types_GetByName(StringValues.carbs);
-                            Ingredients.Add(addIngredient(insertedFood.Id, chosenStyle.Id, chosenServingSize.Id, chosenType[0].Id, carbs, unit_Gram[0].Id, null));
-                        }
-                        if (sugars != 0)
-                        {
-                            chosenType = db.Types_GetByName(StringValues.sugars);
-                            Ingredients.Add(addIngredient(insertedFood.Id, chosenStyle.Id, chosenServingSize.Id, chosenType[0].Id, sugars, unit_Gram[0].Id, null));
-                        }
-                        if (starch != 0)
-                        {
-                            chosenType = db.Types_GetByName(StringValues.starch);
-                            Ingredients.Add(addIngredient(insertedFood.Id, chosenStyle.Id, chosenServingSize.Id, chosenType[0].Id, starch, unit_Gram[0].Id, null));
-                        }
-                        if (cholesterol != 0)
-                        {
-                            chosenType = db.Types_GetByName(StringValues.cholesterol);
-                            Ingredients.Add(addIngredient(insertedFood.Id, chosenStyle.Id, chosenServingSize.Id, chosenType[0].Id, cholesterol, unit_Miligram[0].Id, null));
-                        }
-                        if (fiber != 0)
-                        {
-                            chosenType = db.Types_GetByName(StringValues.fibers);
-                            Ingredients.Add(addIngredient(insertedFood.Id, chosenStyle.Id, chosenServingSize.Id, chosenType[0].Id, fiber, unit_Gram[0].Id, null));
-                        }
-                        if (dietaryFiber != 0)
-                        {
-                            chosenType = db.Types_GetByName(StringValues.dietaryFibers);
-                            Ingredients.Add(addIngredient(insertedFood.Id, chosenStyle.Id, chosenServingSize.Id, chosenType[0].Id, dietaryFiber, unit_Gram[0].Id, null));
-                        }
-                        if (totalFat != 0)
-                        {
-                            chosenType = db.Types_GetByName(StringValues.totalFat);
-                            Ingredients.Add(addIngredient(insertedFood.Id, chosenStyle.Id, chosenServingSize.Id, chosenType[0].Id, totalFat, unit_Gram[0].Id, null));
-                        }
-                        if (saturatedFat != 0)
-                        {
-                            chosenType = db.Types_GetByName(StringValues.saturatedFat);
-                            Ingredients.Add(addIngredient(insertedFood.Id, chosenStyle.Id, chosenServingSize.Id, chosenType[0].Id, saturatedFat, unit_Gram[0].Id, null));
-                        }
-                        if (monoUnsaturatedFat != 0)
-                        {
-                            chosenType = db.Types_GetByName(StringValues.monoUnsaturatedFat);
-                            Ingredients.Add(addIngredient(insertedFood.Id, chosenStyle.Id, chosenServingSize.Id, chosenType[0].Id, monoUnsaturatedFat, unit_Gram[0].Id, null));
-                        }
-                        if (polyUnsaturatedFat != 0)
-                        {
-                            chosenType = db.Types_GetByName(StringValues.polyUnsaturatedFat);
-                            Ingredients.Add(addIngredient(insertedFood.Id, chosenStyle.Id, chosenServingSize.Id, chosenType[0].Id, polyUnsaturatedFat, unit_Gram[0].Id, null));
-                        }
-                        if (transFat != 0)
-                        {
-                            chosenType = db.Types_GetByName(StringValues.transFat);
-                            Ingredients.Add(addIngredient(insertedFood.Id, chosenStyle.Id, chosenServingSize.Id, chosenType[0].Id, transFat, unit_Gram[0].Id, null));
-                        }
-                        if (omega3Fat != 0)
-                        {
-                            chosenType = db.Types_GetByName(StringValues.omega3Fat);
-                            Ingredients.Add(addIngredient(insertedFood.Id, chosenStyle.Id, chosenServingSize.Id, chosenType[0].Id, omega3Fat, unit_Miligram[0].Id, null));
-                        }
-                        if (omega6Fat != 0)
-                        {
-                            chosenType = db.Types_GetByName(StringValues.omega6Fat);
-                            Ingredients.Add(addIngredient(insertedFood.Id, chosenStyle.Id, chosenServingSize.Id, chosenType[0].Id, omega6Fat, unit_Gram[0].Id, null));
-                        }
-                        if (vitA != 0)
-                        {
-                            chosenType = db.Types_GetByName(StringValues.vitA);
-                            Ingredients.Add(addIngredient(insertedFood.Id, chosenStyle.Id, chosenServingSize.Id, chosenType[0].Id, vitA, unit_IU[0].Id, null));
-                        }
-                        if (vitB6 != 0)
-                        {
-                            chosenType = db.Types_GetByName(StringValues.vitB6);
-                            Ingredients.Add(addIngredient(insertedFood.Id, chosenStyle.Id, chosenServingSize.Id, chosenType[0].Id, vitB6, unit_Miligram[0].Id, null));
-                        }
-                        if (vitB12 != 0)
-                        {
-                            chosenType = db.Types_GetByName(StringValues.vitB12);
-                            Ingredients.Add(addIngredient(insertedFood.Id, chosenStyle.Id, chosenServingSize.Id, chosenType[0].Id, vitB12, unit_Microgram[0].Id, null));
-                        }
-                        if (vitC != 0)
-                        {
-                            chosenType = db.Types_GetByName(StringValues.vitC);
-                            Ingredients.Add(addIngredient(insertedFood.Id, chosenStyle.Id, chosenServingSize.Id, chosenType[0].Id, vitC, unit_Miligram[0].Id, null));
-                        }
-                        if (vitD != 0)
-                        {
-                            chosenType = db.Types_GetByName(StringValues.vitD);
-                            Ingredients.Add(addIngredient(insertedFood.Id, chosenStyle.Id, chosenServingSize.Id, chosenType[0].Id, vitD, unit_Miligram[0].Id, null));
-                        }
-                        if (vitE != 0)
-                        {
-                            chosenType = db.Types_GetByName(StringValues.vitE);
-                            Ingredients.Add(addIngredient(insertedFood.Id, chosenStyle.Id, chosenServingSize.Id, chosenType[0].Id, vitE, unit_Miligram[0].Id, null));
-                        }
-                        if (vitK != 0)
-                        {
-                            chosenType = db.Types_GetByName(StringValues.vitK);
-                            Ingredients.Add(addIngredient(insertedFood.Id, chosenStyle.Id, chosenServingSize.Id, chosenType[0].Id, vitK, unit_Microgram[0].Id, null));
-                        }
-                        if (thiamin != 0)
-                        {
-                            chosenType = db.Types_GetByName(StringValues.thiamin);
-                            Ingredients.Add(addIngredient(insertedFood.Id, chosenStyle.Id, chosenServingSize.Id, chosenType[0].Id, thiamin, unit_Miligram[0].Id, null));
-                        }
-                        if (riboflavin != 0)
-                        {
-                            chosenType = db.Types_GetByName(StringValues.riboflavin);
-                            Ingredients.Add(addIngredient(insertedFood.Id, chosenStyle.Id, chosenServingSize.Id, chosenType[0].Id, riboflavin, unit_Miligram[0].Id, null));
-                        }
-                        if (niacin != 0)
-                        {
-                            chosenType = db.Types_GetByName(StringValues.niacin);
-                            Ingredients.Add(addIngredient(insertedFood.Id, chosenStyle.Id, chosenServingSize.Id, chosenType[0].Id, niacin, unit_Miligram[0].Id, null));
-                        }
-                        if (folate != 0)
-                        {
-                            chosenType = db.Types_GetByName(StringValues.folate);
-                            Ingredients.Add(addIngredient(insertedFood.Id, chosenStyle.Id, chosenServingSize.Id, chosenType[0].Id, folate, unit_Microgram[0].Id, null));
-                        }
-                        if (panthothenicAcid != 0)
-                        {
-                            chosenType = db.Types_GetByName(StringValues.panthothenicAcid);
-                            Ingredients.Add(addIngredient(insertedFood.Id, chosenStyle.Id, chosenServingSize.Id, chosenType[0].Id, panthothenicAcid, unit_Miligram[0].Id, null));
-                        }
-                        if (calcium != 0)
-                        {
-                            chosenType = db.Types_GetByName(StringValues.calcium);
-                            Ingredients.Add(addIngredient(insertedFood.Id, chosenStyle.Id, chosenServingSize.Id, chosenType[0].Id, calcium, unit_Miligram[0].Id, null));
-                        }
-                        if (iron != 0)
-                        {
-                            chosenType = db.Types_GetByName(StringValues.iron);
-                            Ingredients.Add(addIngredient(insertedFood.Id, chosenStyle.Id, chosenServingSize.Id, chosenType[0].Id, iron, unit_Miligram[0].Id, null));
-                        }
-                        if (magnesium != 0)
-                        {
-                            chosenType = db.Types_GetByName(StringValues.magnesium);
-                            Ingredients.Add(addIngredient(insertedFood.Id, chosenStyle.Id, chosenServingSize.Id, chosenType[0].Id, magnesium, unit_Miligram[0].Id, null));
-                        }
-                        if (phosphorus != 0)
-                        {
-                            chosenType = db.Types_GetByName(StringValues.phosphorus);
-                            Ingredients.Add(addIngredient(insertedFood.Id, chosenStyle.Id, chosenServingSize.Id, chosenType[0].Id, phosphorus, unit_Miligram[0].Id, null));
-                        }
-                        if (potassium != 0)
-                        {
-                            chosenType = db.Types_GetByName(StringValues.potassium);
-                            Ingredients.Add(addIngredient(insertedFood.Id, chosenStyle.Id, chosenServingSize.Id, chosenType[0].Id, potassium, unit_Miligram[0].Id, null));
-                        }
-                        if (sodium != 0)
-                        {
-                            chosenType = db.Types_GetByName(StringValues.sodium);
-                            Ingredients.Add(addIngredient(insertedFood.Id, chosenStyle.Id, chosenServingSize.Id, chosenType[0].Id, sodium, unit_Miligram[0].Id, null));
-                        }
-                        if (zinc != 0)
-                        {
-                            chosenType = db.Types_GetByName(StringValues.zinc);
-                            Ingredients.Add(addIngredient(insertedFood.Id, chosenStyle.Id, chosenServingSize.Id, chosenType[0].Id, zinc, unit_Miligram[0].Id, null));
-                        }
-                        if (copper != 0)
-                        {
-                            chosenType = db.Types_GetByName(StringValues.copper);
-                            Ingredients.Add(addIngredient(insertedFood.Id, chosenStyle.Id, chosenServingSize.Id, chosenType[0].Id, copper, unit_Miligram[0].Id, null));
-                        }
-                        if (manganese != 0)
-                        {
-                            chosenType = db.Types_GetByName(StringValues.manganese);
-                            Ingredients.Add(addIngredient(insertedFood.Id, chosenStyle.Id, chosenServingSize.Id, chosenType[0].Id, manganese, unit_Miligram[0].Id, null));
-                        }
-                        if (selenium != 0)
-                        {
-                            chosenType = db.Types_GetByName(StringValues.selenium);
-                            Ingredients.Add(addIngredient(insertedFood.Id, chosenStyle.Id, chosenServingSize.Id, chosenType[0].Id, selenium, unit_Microgram[0].Id, null));
-                        }
+                        chosenType = db.Types_GetByName(StringValues.GI);
+                        Ingredients.Add(addIngredient(insertedFood.Id, chosenStyle.Id, chosenServingSize.Id, chosenType[0].Id, GI, no_unit[0].Id, null));
                     }
-                    try
+                    if (completnessScore != 0)
                     {
-                        if (Ingredients.Count != 0)
-                        {
-                            var result = db.InsertIngredientsForFood(Ingredients);
-                            if (result)
-                            {
-                                ClearTextboxes();
-                                ResetAllVars();
-                                numberOfFoodLabel.Text = Foods_GetCount();
-                                MessageBox.Show($"{insertedFood.Name} added!!", "Success!");
-                            }
-                        }
-                        else
-                        {
-                            db.Foods_Remove(insertedFood);
-                            MessageBox.Show("Cant add food without any ingredients!", "Error");
-                        }
+                        chosenType = db.Types_GetByName(StringValues.completnessScore);
+                        Ingredients.Add(addIngredient(insertedFood.Id, chosenStyle.Id, chosenServingSize.Id, chosenType[0].Id, completnessScore, no_unit[0].Id, null));
                     }
-                    catch (Exception)
+                    if (aminoAcidScore != 0)
                     {
-                        db.Foods_Remove(insertedFood);
-                        MessageBox.Show("Ingredients could not be added! Removing Food!", "Error");
+                        chosenType = db.Types_GetByName(StringValues.aminoAcidScore);
+                        Ingredients.Add(addIngredient(insertedFood.Id, chosenStyle.Id, chosenServingSize.Id, chosenType[0].Id, aminoAcidScore, no_unit[0].Id, null));
+                    }
+                    if (calories != 0)
+                    {
+                        chosenType = db.Types_GetByName(StringValues.calories);
+                        Ingredients.Add(addIngredient(insertedFood.Id, chosenStyle.Id, chosenServingSize.Id, chosenType[0].Id, calories, no_unit[0].Id, null));
+                    }
+                    if (proteins != 0)
+                    {
+                        chosenType = db.Types_GetByName(StringValues.proteins);
+                        Ingredients.Add(addIngredient(insertedFood.Id, chosenStyle.Id, chosenServingSize.Id, chosenType[0].Id, proteins, unit_Gram[0].Id, null));
+                    }
+                    if (carbs != 0)
+                    {
+                        chosenType = db.Types_GetByName(StringValues.carbs);
+                        Ingredients.Add(addIngredient(insertedFood.Id, chosenStyle.Id, chosenServingSize.Id, chosenType[0].Id, carbs, unit_Gram[0].Id, null));
+                    }
+                    if (sugars != 0)
+                    {
+                        chosenType = db.Types_GetByName(StringValues.sugars);
+                        Ingredients.Add(addIngredient(insertedFood.Id, chosenStyle.Id, chosenServingSize.Id, chosenType[0].Id, sugars, unit_Gram[0].Id, null));
+                    }
+                    if (starch != 0)
+                    {
+                        chosenType = db.Types_GetByName(StringValues.starch);
+                        Ingredients.Add(addIngredient(insertedFood.Id, chosenStyle.Id, chosenServingSize.Id, chosenType[0].Id, starch, unit_Gram[0].Id, null));
+                    }
+                    if (cholesterol != 0)
+                    {
+                        chosenType = db.Types_GetByName(StringValues.cholesterol);
+                        Ingredients.Add(addIngredient(insertedFood.Id, chosenStyle.Id, chosenServingSize.Id, chosenType[0].Id, cholesterol, unit_Miligram[0].Id, null));
+                    }
+                    if (fiber != 0)
+                    {
+                        chosenType = db.Types_GetByName(StringValues.fibers);
+                        Ingredients.Add(addIngredient(insertedFood.Id, chosenStyle.Id, chosenServingSize.Id, chosenType[0].Id, fiber, unit_Gram[0].Id, null));
+                    }
+                    if (dietaryFiber != 0)
+                    {
+                        chosenType = db.Types_GetByName(StringValues.dietaryFibers);
+                        Ingredients.Add(addIngredient(insertedFood.Id, chosenStyle.Id, chosenServingSize.Id, chosenType[0].Id, dietaryFiber, unit_Gram[0].Id, null));
+                    }
+                    if (totalFat != 0)
+                    {
+                        chosenType = db.Types_GetByName(StringValues.totalFat);
+                        Ingredients.Add(addIngredient(insertedFood.Id, chosenStyle.Id, chosenServingSize.Id, chosenType[0].Id, totalFat, unit_Gram[0].Id, null));
+                    }
+                    if (saturatedFat != 0)
+                    {
+                        chosenType = db.Types_GetByName(StringValues.saturatedFat);
+                        Ingredients.Add(addIngredient(insertedFood.Id, chosenStyle.Id, chosenServingSize.Id, chosenType[0].Id, saturatedFat, unit_Gram[0].Id, null));
+                    }
+                    if (monoUnsaturatedFat != 0)
+                    {
+                        chosenType = db.Types_GetByName(StringValues.monoUnsaturatedFat);
+                        Ingredients.Add(addIngredient(insertedFood.Id, chosenStyle.Id, chosenServingSize.Id, chosenType[0].Id, monoUnsaturatedFat, unit_Gram[0].Id, null));
+                    }
+                    if (polyUnsaturatedFat != 0)
+                    {
+                        chosenType = db.Types_GetByName(StringValues.polyUnsaturatedFat);
+                        Ingredients.Add(addIngredient(insertedFood.Id, chosenStyle.Id, chosenServingSize.Id, chosenType[0].Id, polyUnsaturatedFat, unit_Gram[0].Id, null));
+                    }
+                    if (transFat != 0)
+                    {
+                        chosenType = db.Types_GetByName(StringValues.transFat);
+                        Ingredients.Add(addIngredient(insertedFood.Id, chosenStyle.Id, chosenServingSize.Id, chosenType[0].Id, transFat, unit_Gram[0].Id, null));
+                    }
+                    if (omega3Fat != 0)
+                    {
+                        chosenType = db.Types_GetByName(StringValues.omega3Fat);
+                        Ingredients.Add(addIngredient(insertedFood.Id, chosenStyle.Id, chosenServingSize.Id, chosenType[0].Id, omega3Fat, unit_Miligram[0].Id, null));
+                    }
+                    if (omega6Fat != 0)
+                    {
+                        chosenType = db.Types_GetByName(StringValues.omega6Fat);
+                        Ingredients.Add(addIngredient(insertedFood.Id, chosenStyle.Id, chosenServingSize.Id, chosenType[0].Id, omega6Fat, unit_Gram[0].Id, null));
+                    }
+                    if (vitA != 0)
+                    {
+                        chosenType = db.Types_GetByName(StringValues.vitA);
+                        Ingredients.Add(addIngredient(insertedFood.Id, chosenStyle.Id, chosenServingSize.Id, chosenType[0].Id, vitA, unit_IU[0].Id, null));
+                    }
+                    if (vitB6 != 0)
+                    {
+                        chosenType = db.Types_GetByName(StringValues.vitB6);
+                        Ingredients.Add(addIngredient(insertedFood.Id, chosenStyle.Id, chosenServingSize.Id, chosenType[0].Id, vitB6, unit_Miligram[0].Id, null));
+                    }
+                    if (vitB12 != 0)
+                    {
+                        chosenType = db.Types_GetByName(StringValues.vitB12);
+                        Ingredients.Add(addIngredient(insertedFood.Id, chosenStyle.Id, chosenServingSize.Id, chosenType[0].Id, vitB12, unit_Microgram[0].Id, null));
+                    }
+                    if (vitC != 0)
+                    {
+                        chosenType = db.Types_GetByName(StringValues.vitC);
+                        Ingredients.Add(addIngredient(insertedFood.Id, chosenStyle.Id, chosenServingSize.Id, chosenType[0].Id, vitC, unit_Miligram[0].Id, null));
+                    }
+                    if (vitD != 0)
+                    {
+                        chosenType = db.Types_GetByName(StringValues.vitD);
+                        Ingredients.Add(addIngredient(insertedFood.Id, chosenStyle.Id, chosenServingSize.Id, chosenType[0].Id, vitD, unit_Miligram[0].Id, null));
+                    }
+                    if (vitE != 0)
+                    {
+                        chosenType = db.Types_GetByName(StringValues.vitE);
+                        Ingredients.Add(addIngredient(insertedFood.Id, chosenStyle.Id, chosenServingSize.Id, chosenType[0].Id, vitE, unit_Miligram[0].Id, null));
+                    }
+                    if (vitK != 0)
+                    {
+                        chosenType = db.Types_GetByName(StringValues.vitK);
+                        Ingredients.Add(addIngredient(insertedFood.Id, chosenStyle.Id, chosenServingSize.Id, chosenType[0].Id, vitK, unit_Microgram[0].Id, null));
+                    }
+                    if (thiamin != 0)
+                    {
+                        chosenType = db.Types_GetByName(StringValues.thiamin);
+                        Ingredients.Add(addIngredient(insertedFood.Id, chosenStyle.Id, chosenServingSize.Id, chosenType[0].Id, thiamin, unit_Miligram[0].Id, null));
+                    }
+                    if (riboflavin != 0)
+                    {
+                        chosenType = db.Types_GetByName(StringValues.riboflavin);
+                        Ingredients.Add(addIngredient(insertedFood.Id, chosenStyle.Id, chosenServingSize.Id, chosenType[0].Id, riboflavin, unit_Miligram[0].Id, null));
+                    }
+                    if (niacin != 0)
+                    {
+                        chosenType = db.Types_GetByName(StringValues.niacin);
+                        Ingredients.Add(addIngredient(insertedFood.Id, chosenStyle.Id, chosenServingSize.Id, chosenType[0].Id, niacin, unit_Miligram[0].Id, null));
+                    }
+                    if (folate != 0)
+                    {
+                        chosenType = db.Types_GetByName(StringValues.folate);
+                        Ingredients.Add(addIngredient(insertedFood.Id, chosenStyle.Id, chosenServingSize.Id, chosenType[0].Id, folate, unit_Microgram[0].Id, null));
+                    }
+                    if (panthothenicAcid != 0)
+                    {
+                        chosenType = db.Types_GetByName(StringValues.panthothenicAcid);
+                        Ingredients.Add(addIngredient(insertedFood.Id, chosenStyle.Id, chosenServingSize.Id, chosenType[0].Id, panthothenicAcid, unit_Miligram[0].Id, null));
+                    }
+                    if (calcium != 0)
+                    {
+                        chosenType = db.Types_GetByName(StringValues.calcium);
+                        Ingredients.Add(addIngredient(insertedFood.Id, chosenStyle.Id, chosenServingSize.Id, chosenType[0].Id, calcium, unit_Miligram[0].Id, null));
+                    }
+                    if (iron != 0)
+                    {
+                        chosenType = db.Types_GetByName(StringValues.iron);
+                        Ingredients.Add(addIngredient(insertedFood.Id, chosenStyle.Id, chosenServingSize.Id, chosenType[0].Id, iron, unit_Miligram[0].Id, null));
+                    }
+                    if (magnesium != 0)
+                    {
+                        chosenType = db.Types_GetByName(StringValues.magnesium);
+                        Ingredients.Add(addIngredient(insertedFood.Id, chosenStyle.Id, chosenServingSize.Id, chosenType[0].Id, magnesium, unit_Miligram[0].Id, null));
+                    }
+                    if (phosphorus != 0)
+                    {
+                        chosenType = db.Types_GetByName(StringValues.phosphorus);
+                        Ingredients.Add(addIngredient(insertedFood.Id, chosenStyle.Id, chosenServingSize.Id, chosenType[0].Id, phosphorus, unit_Miligram[0].Id, null));
+                    }
+                    if (potassium != 0)
+                    {
+                        chosenType = db.Types_GetByName(StringValues.potassium);
+                        Ingredients.Add(addIngredient(insertedFood.Id, chosenStyle.Id, chosenServingSize.Id, chosenType[0].Id, potassium, unit_Miligram[0].Id, null));
+                    }
+                    if (sodium != 0)
+                    {
+                        chosenType = db.Types_GetByName(StringValues.sodium);
+                        Ingredients.Add(addIngredient(insertedFood.Id, chosenStyle.Id, chosenServingSize.Id, chosenType[0].Id, sodium, unit_Miligram[0].Id, null));
+                    }
+                    if (zinc != 0)
+                    {
+                        chosenType = db.Types_GetByName(StringValues.zinc);
+                        Ingredients.Add(addIngredient(insertedFood.Id, chosenStyle.Id, chosenServingSize.Id, chosenType[0].Id, zinc, unit_Miligram[0].Id, null));
+                    }
+                    if (copper != 0)
+                    {
+                        chosenType = db.Types_GetByName(StringValues.copper);
+                        Ingredients.Add(addIngredient(insertedFood.Id, chosenStyle.Id, chosenServingSize.Id, chosenType[0].Id, copper, unit_Miligram[0].Id, null));
+                    }
+                    if (manganese != 0)
+                    {
+                        chosenType = db.Types_GetByName(StringValues.manganese);
+                        Ingredients.Add(addIngredient(insertedFood.Id, chosenStyle.Id, chosenServingSize.Id, chosenType[0].Id, manganese, unit_Miligram[0].Id, null));
+                    }
+                    if (selenium != 0)
+                    {
+                        chosenType = db.Types_GetByName(StringValues.selenium);
+                        Ingredients.Add(addIngredient(insertedFood.Id, chosenStyle.Id, chosenServingSize.Id, chosenType[0].Id, selenium, unit_Microgram[0].Id, null));
                     }
                 }
+                try
+                {
+                    if (Ingredients.Count != 0)
+                    {
+                        var result = db.InsertIngredientsForFood(Ingredients);
+                        if (result)
+                        {
+                            ClearTextboxes();
+                            ResetAllVars();
+                            numberOfFoodLabel.Text = Foods_GetCount();
+                            MessageBox.Show($"{insertedFood.Name} added!!", "Success!");
+                        }
+                    }
+                    else
+                    {
+                        db.Foods_Remove(insertedFood);
+                        MessageBox.Show("Cant add food without any ingredients!", "Error");
+                    }
+                }
+                catch (Exception)
+                {
+                    db.Foods_Remove(insertedFood);
+                    MessageBox.Show("Ingredients could not be added! Removing Food!", "Error");
+                }
+                
             }
             catch (Exception)
             {

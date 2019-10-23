@@ -15,7 +15,7 @@ namespace NutritionUI
     public partial class AddUnitForm : Form
     {
         private string unitName = null;
-        private string unitDescription = null; // fix this in db, I set it up to varbinary by mistake
+        private string unitDescription = null;
 
         public AddUnitForm()
         {

@@ -29,6 +29,10 @@ namespace NutritionLibrary
 
         int Foods_GetSum();
 
+        List<FoodModel> Foods_GetAll();
+
+        List<FoodModel> Foods_FindAll(string name);
+
         void Foods_Remove(FoodModel food);
 
         ServingSizeModel ServingSizes_Insert(ServingSizeModel model);

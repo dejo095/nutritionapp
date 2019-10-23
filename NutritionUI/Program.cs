@@ -20,7 +20,7 @@ namespace NutritionUI
             // setup global db connection
             NutritionLibrary.GlobalConfig.InitializeConnection();
 
-            Application.Run(new FoodEntryForm());
+            Application.Run(new DashboardForm());
         }
     }
 }

@@ -215,5 +215,31 @@ namespace NutritionLibrary.DataAccess
                 return model;
             }
         }
+
+        public List<FoodModel> Foods_GetAll()
+        {
+            List<FoodModel> output;
+
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(GlobalConfig.CnnString(dbName)))
+            {
+                output = connection.Query<FoodModel>("dbo.spFoods_GetAll", commandType: CommandType.StoredProcedure).ToList();
+            }
+
+            return output;
+        }
+
+        public List<FoodModel> Foods_FindAll(string name)
+        {
+            List<FoodModel> output;
+
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(GlobalConfig.CnnString(dbName)))
+            {
+                var p = new DynamicParameters();
+                p.Add("@Name", name);
+                output = connection.Query<FoodModel>("dbo.spFoods_FindAll", param: p, commandType: CommandType.StoredProcedure).ToList();
+            }
+
+            return output;
+        }
     }
 }
