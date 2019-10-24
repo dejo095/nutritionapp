@@ -61,31 +61,9 @@ namespace NutritionUI
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void addServingSizeButton_Click(object sender, EventArgs e)
         {
-            if (servingSizeName != null && dataValue != 0)
-            {
-                ServingSizeModel model = new ServingSizeModel();
-                UnitModel unitId = (UnitModel)UnitsCombobox.SelectedItem;
-
-                model.Name = servingSizeName;
-                model.DataValue = dataValue;
-                model.UnitId = unitId.Id;
-
-                IDataConnection db = GlobalConfig.Connection;
-                ServingSizeModel result = db.ServingSizes_Insert(model);
-                if (result.Id != 0) 
-                {
-                    MessageBox.Show("Serving Size added successfully");
-                    this.createdModel = result;
-                    this.Close();
-                }
-
-            }
-            else
-            {
-                MessageBox.Show("Please enter all the details");
-            }
+            // TODO: make this
         }
     }
 }

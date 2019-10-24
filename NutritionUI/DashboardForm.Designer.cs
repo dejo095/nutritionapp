@@ -80,7 +80,7 @@
             this.dataGridPanel.Controls.Add(this.dataGridView1);
             this.dataGridPanel.Location = new System.Drawing.Point(12, 86);
             this.dataGridPanel.Name = "dataGridPanel";
-            this.dataGridPanel.Size = new System.Drawing.Size(450, 437);
+            this.dataGridPanel.Size = new System.Drawing.Size(450, 211);
             this.dataGridPanel.TabIndex = 10;
             // 
             // foundFoodsListview
@@ -88,12 +88,13 @@
             this.foundFoodsListview.Activation = System.Windows.Forms.ItemActivation.TwoClick;
             this.foundFoodsListview.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
             this.foundFoodsListview.HideSelection = false;
-            this.foundFoodsListview.Location = new System.Drawing.Point(3, 68);
+            this.foundFoodsListview.Location = new System.Drawing.Point(3, 3);
             this.foundFoodsListview.MultiSelect = false;
             this.foundFoodsListview.Name = "foundFoodsListview";
-            this.foundFoodsListview.Size = new System.Drawing.Size(167, 104);
+            this.foundFoodsListview.Size = new System.Drawing.Size(444, 168);
             this.foundFoodsListview.TabIndex = 1;
             this.foundFoodsListview.UseCompatibleStateImageBehavior = false;
+            this.foundFoodsListview.View = System.Windows.Forms.View.List;
             this.foundFoodsListview.SelectedIndexChanged += new System.EventHandler(this.foundFoodsListview_SelectedIndexChanged);
             // 
             // dataGridView1
@@ -101,9 +102,9 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.name});
-            this.dataGridView1.Location = new System.Drawing.Point(3, 3);
+            this.dataGridView1.Location = new System.Drawing.Point(63, 135);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(330, 59);
+            this.dataGridView1.Size = new System.Drawing.Size(161, 59);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_CellMouseDoubleClick);
             // 
@@ -177,7 +178,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(474, 460);
+            this.ClientSize = new System.Drawing.Size(474, 309);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.dashboardToolstrip);
             this.Controls.Add(this.dataGridPanel);

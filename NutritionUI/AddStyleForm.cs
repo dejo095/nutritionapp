@@ -22,7 +22,7 @@ namespace NutritionUI
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void addStyleButton_Click(object sender, EventArgs e)
         {
             if (styleNameTextbox.Text.Length != 0)
             {
@@ -37,7 +37,7 @@ namespace NutritionUI
                 if (res.Id != 0)
                 {
                     MessageBox.Show("Style added successfully");
-                    this.Close();
+                    styleName = null;
                 }
             }
             else

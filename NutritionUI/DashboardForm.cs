@@ -20,6 +20,7 @@ namespace NutritionUI
         {
             InitializeComponent();
 
+            dataGridView1.Visible = false;  // hiding the datagrid
 
         }
 
@@ -32,8 +33,8 @@ namespace NutritionUI
                 foods = db.Foods_FindAll(findFoodTextbox.Text);
 
                 // datagrid
-                dataGridView1.AutoGenerateColumns = false;
-                dataGridView1.DataSource = foods;
+                //dataGridView1.AutoGenerateColumns = false;
+                //dataGridView1.DataSource = foods;
 
                 // listview
                 foundFoodsListview.Items.Clear();

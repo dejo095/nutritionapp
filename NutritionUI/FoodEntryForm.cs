@@ -72,8 +72,8 @@ namespace NutritionUI
             populateStylesCombobox();
             populateServingSizesCombobox();
 
-            numberOfFoodLabel.Text = Foods_GetCount();
-            
+            foodCountLabel.Text = Foods_GetCount();
+
             this.foodNameTextbox.Enter += new System.EventHandler(this.foodNameTextbox_Enter);
             this.foodNameTextbox.Leave += new System.EventHandler(this.foodNameTextbox_Leave);
 
@@ -899,7 +899,7 @@ namespace NutritionUI
                         {
                             ClearTextboxes();
                             ResetAllVars();
-                            numberOfFoodLabel.Text = Foods_GetCount();
+                            foodCountLabel.Text = Foods_GetCount();
                             MessageBox.Show($"{insertedFood.Name} added!!", "Success!");
                         }
                     }

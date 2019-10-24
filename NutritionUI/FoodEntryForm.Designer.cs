@@ -83,9 +83,9 @@ namespace NutritionUI
             this.servingSizeCombobox = new System.Windows.Forms.ComboBox();
             this.NameGroupbox = new System.Windows.Forms.GroupBox();
             this.foodForm_panel = new System.Windows.Forms.Panel();
-            this.numberOfFoodLabel = new System.Windows.Forms.Label();
-            this.copyrightLabel = new System.Windows.Forms.Label();
-            this.backToDashboardFormButton = new System.Windows.Forms.LinkLabel();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.foodCountLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.MainGroupbox.SuspendLayout();
             this.CaloriesGroupbox.SuspendLayout();
             this.fibersGroupbox.SuspendLayout();
@@ -94,6 +94,8 @@ namespace NutritionUI
             this.mineralsGroupbox.SuspendLayout();
             this.NameGroupbox.SuspendLayout();
             this.foodForm_panel.SuspendLayout();
+            this.panel1.SuspendLayout();
+            this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // foodNameTextbox
@@ -428,7 +430,6 @@ namespace NutritionUI
             // 
             // mineralsGroupbox
             // 
-            this.mineralsGroupbox.Controls.Add(this.copyrightLabel);
             this.mineralsGroupbox.Controls.Add(this.seleniumTextbox);
             this.mineralsGroupbox.Controls.Add(this.manganeseTextbox);
             this.mineralsGroupbox.Controls.Add(this.copperTextbox);
@@ -543,9 +544,9 @@ namespace NutritionUI
             this.addFoodButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Lime;
             this.addFoodButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.addFoodButton.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addFoodButton.Location = new System.Drawing.Point(716, 26);
+            this.addFoodButton.Location = new System.Drawing.Point(716, 12);
             this.addFoodButton.Name = "addFoodButton";
-            this.addFoodButton.Size = new System.Drawing.Size(86, 56);
+            this.addFoodButton.Size = new System.Drawing.Size(86, 85);
             this.addFoodButton.TabIndex = 8;
             this.addFoodButton.Text = "ADD\r\nFOOD";
             this.addFoodButton.UseVisualStyleBackColor = false;
@@ -575,7 +576,6 @@ namespace NutritionUI
             // foodForm_panel
             // 
             this.foodForm_panel.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.foodForm_panel.Controls.Add(this.numberOfFoodLabel);
             this.foodForm_panel.Controls.Add(this.CaloriesGroupbox);
             this.foodForm_panel.Controls.Add(this.addFoodButton);
             this.foodForm_panel.Controls.Add(this.NameGroupbox);
@@ -584,54 +584,52 @@ namespace NutritionUI
             this.foodForm_panel.Controls.Add(this.vitaminsGroupbox);
             this.foodForm_panel.Controls.Add(this.fibersGroupbox);
             this.foodForm_panel.Controls.Add(this.fatsGroupbox);
-            this.foodForm_panel.Location = new System.Drawing.Point(12, 39);
+            this.foodForm_panel.Location = new System.Drawing.Point(1, 0);
             this.foodForm_panel.Name = "foodForm_panel";
-            this.foodForm_panel.Size = new System.Drawing.Size(811, 489);
+            this.foodForm_panel.Size = new System.Drawing.Size(811, 486);
             this.foodForm_panel.TabIndex = 9;
             // 
-            // numberOfFoodLabel
+            // panel1
             // 
-            this.numberOfFoodLabel.AutoSize = true;
-            this.numberOfFoodLabel.Location = new System.Drawing.Point(6, 464);
-            this.numberOfFoodLabel.Name = "numberOfFoodLabel";
-            this.numberOfFoodLabel.Size = new System.Drawing.Size(85, 17);
-            this.numberOfFoodLabel.TabIndex = 9;
-            this.numberOfFoodLabel.Text = "# food in db:";
+            this.panel1.Controls.Add(this.statusStrip1);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel1.Location = new System.Drawing.Point(0, 488);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(816, 21);
+            this.panel1.TabIndex = 10;
             // 
-            // copyrightLabel
+            // statusStrip1
             // 
-            this.copyrightLabel.AutoSize = true;
-            this.copyrightLabel.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.copyrightLabel.ForeColor = System.Drawing.Color.DarkGray;
-            this.copyrightLabel.Location = new System.Drawing.Point(28, 346);
-            this.copyrightLabel.Name = "copyrightLabel";
-            this.copyrightLabel.Size = new System.Drawing.Size(143, 13);
-            this.copyrightLabel.TabIndex = 11;
-            this.copyrightLabel.Text = "Created @10/2019 by Dejo";
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.foodCountLabel});
+            this.statusStrip1.Location = new System.Drawing.Point(0, -1);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(816, 22);
+            this.statusStrip1.Stretch = false;
+            this.statusStrip1.TabIndex = 0;
+            this.statusStrip1.Text = "statusStrip1";
             // 
-            // backToDashboardFormButton
+            // foodCountLabel
             // 
-            this.backToDashboardFormButton.AutoSize = true;
-            this.backToDashboardFormButton.Location = new System.Drawing.Point(12, 11);
-            this.backToDashboardFormButton.Name = "backToDashboardFormButton";
-            this.backToDashboardFormButton.Size = new System.Drawing.Size(91, 17);
-            this.backToDashboardFormButton.TabIndex = 10;
-            this.backToDashboardFormButton.TabStop = true;
-            this.backToDashboardFormButton.Text = "<- Dashboard";
-            this.backToDashboardFormButton.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.backToDashboardFormButton_LinkClicked);
+            this.foodCountLabel.Margin = new System.Windows.Forms.Padding(5, 3, 0, 2);
+            this.foodCountLabel.Name = "foodCountLabel";
+            this.foodCountLabel.Size = new System.Drawing.Size(118, 17);
+            this.foodCountLabel.Text = "toolStripStatusLabel1";
             // 
             // FoodEntryForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(838, 539);
-            this.Controls.Add(this.backToDashboardFormButton);
+            this.ClientSize = new System.Drawing.Size(816, 509);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.foodForm_panel);
             this.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.Color.Black;
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(832, 548);
+            this.MinimumSize = new System.Drawing.Size(832, 548);
             this.Name = "FoodEntryForm";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -651,9 +649,11 @@ namespace NutritionUI
             this.NameGroupbox.ResumeLayout(false);
             this.NameGroupbox.PerformLayout();
             this.foodForm_panel.ResumeLayout(false);
-            this.foodForm_panel.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            this.statusStrip1.ResumeLayout(false);
+            this.statusStrip1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -712,9 +712,9 @@ namespace NutritionUI
         private System.Windows.Forms.GroupBox NameGroupbox;
         private System.Windows.Forms.ComboBox servingSizeCombobox;
         private Panel foodForm_panel;
-        private Label copyrightLabel;
-        private Label numberOfFoodLabel;
-        private LinkLabel backToDashboardFormButton;
+        private Panel panel1;
+        private StatusStrip statusStrip1;
+        private ToolStripStatusLabel foodCountLabel;
     }
 }
 
