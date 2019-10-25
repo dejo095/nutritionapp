@@ -222,12 +222,17 @@ namespace NutritionUI
 
         private void foodNameTextbox_Enter(object sender, EventArgs e)
         {
-            foodNameTextbox.Text = "";
+            foodNameTextbox.HideSelection = false;
+            foodNameTextbox.SelectAll();
 
         }
         private void foodNameTextbox_Leave(object sender, EventArgs e)
         {
-            if (foodNameTextbox.Text.Length != 0) foodName = foodNameTextbox.Text;
+            if (foodNameTextbox.Text.Length != 0)
+            {
+                foodName = foodNameTextbox.Text;
+                foodNameTextbox.SelectionLength = 0;
+            }
             else
             {
                 MessageBox.Show("Please enter food name");
@@ -267,22 +272,33 @@ namespace NutritionUI
 
         private void caloriesTextbox_Enter(object sender, EventArgs e)
         {
-            caloriesTextbox.Text = "";
+            caloriesTextbox.HideSelection = false;
+            caloriesTextbox.SelectAll();
         }
         private void caloriesTextbox_Leave(object sender, EventArgs e)
         {
             bool res = decimal.TryParse(caloriesTextbox.Text, out calories);
             if (!res) caloriesTextbox.Text = StringValues.calories;
+            caloriesTextbox.SelectionLength = 0;
         }
 
         private void proteinsTextbox_Enter(object sender, EventArgs e)
         {
-            proteinsTextbox.Text = "";
+            proteinsTextbox.HideSelection = false;
+            proteinsTextbox.SelectAll();
+
         }
         private void proteinsTextbox_Leave(object sender, EventArgs e)
         {
-            bool res = decimal.TryParse(proteinsTextbox.Text, out proteins);
-            if (!res) proteinsTextbox.Text = StringValues.proteins;
+            if (proteinsTextbox.Text.IndexOf(",") > 0)
+                proteinsTextbox.Text = proteinsTextbox.Text.Replace(",", ".");
+            
+            bool check = decimal.TryParse(proteinsTextbox.Text, out proteins);
+
+            if (!check)
+                proteinsTextbox.Text = StringValues.proteins;
+
+            proteinsTextbox.SelectionLength = 0;
         }
 
         private void carbsTextbox_Enter(object sender, EventArgs e)

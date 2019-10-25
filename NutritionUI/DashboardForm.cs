@@ -20,8 +20,6 @@ namespace NutritionUI
         {
             InitializeComponent();
 
-            dataGridView1.Visible = false;  // hiding the datagrid
-
         }
 
         private void findFoodButton_Click(object sender, EventArgs e)

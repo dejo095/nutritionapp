@@ -14,8 +14,6 @@ namespace NutritionUI
 {
     public partial class AddServingSizeForm : Form
     {
-        public ServingSizeModel createdModel { get; private set; }
-
         private string servingSizeName = null;
         private decimal dataValue = 0;
         
@@ -63,7 +61,30 @@ namespace NutritionUI
 
         private void addServingSizeButton_Click(object sender, EventArgs e)
         {
-            // TODO: make this
+            if (servingSizeName != null && dataValue != 0)
+            {
+                ServingSizeModel model = new ServingSizeModel();
+                UnitModel unitId = (UnitModel)UnitsCombobox.SelectedItem;
+
+                model.Name = servingSizeName;
+                model.DataValue = dataValue;
+                model.UnitId = unitId.Id;
+
+                IDataConnection db = GlobalConfig.Connection;
+                ServingSizeModel result = db.ServingSizes_Insert(model);
+                if (result.Id != 0)
+                {
+                    MessageBox.Show("Serving Size added successfully");
+                    servingSizeName = null;
+                    dataValue = 0;
+                    unitId = null;
+                }
+
+            }
+            else
+            {
+                MessageBox.Show("Please enter all the details");
+            }
         }
     }
 }
