@@ -226,9 +226,10 @@ namespace NutritionUI
             foodNameTextbox.SelectAll();
 
         }
+        // TODO: make a event handler class for this
         private void foodNameTextbox_Leave(object sender, EventArgs e)
         {
-            if (foodNameTextbox.Text.Length != 0)
+            if (foodNameTextbox.Text.Length != 0 && foodNameTextbox.Text != StringValues.foodName)
             {
                 foodName = foodNameTextbox.Text;
                 foodNameTextbox.SelectionLength = 0;
